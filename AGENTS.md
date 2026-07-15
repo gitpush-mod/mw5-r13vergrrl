@@ -18,6 +18,7 @@ Concrete rules — same as TCS ticket-first:
 
 - **Starting work?** Open a ticket in this repo, add to the board, set Status = **In Progress**, then start.
 - **Have an idea for later?** Ticket in **Backlog**. Not in memory, not in a README, not in NOTES.md.
+- **Need Chris to check something before closing?** Move the ticket to **In QA** and comment with exactly what he needs to look at. Do NOT set to Done — that's Chris's call after review.
 - **Finished?** Close the ticket with a closing summary comment (what you did / problems + solutions / anything NOT done).
 - **Same-session micro-work?** Open + close in the same session — but the ticket exists.
 - **Older than 30 days in Done?** The weekly cron in this repo moves it to Archived. The closed ticket + CHANGELOG entry persist.
@@ -50,6 +51,14 @@ Start by reading the knowledgebase, then look at
 `mw5-knowledgebase/reference/ZuluBetterHeroes/` for how another character-
 addition mod was structured. `PORT_PLAN.md` in the knowledgebase covers
 the general porting approach.
+
+## How to verify (before flagging In QA or closing)
+
+- **Cook the mod** via the MW5 Mod Editor's `Manage Mod → Package Mod`. Errors block the closing.
+- **Load in a fresh MW5 career save.** Verify the mod appears in the Mod Manager, enables cleanly, and doesn't crash the loading screen.
+- **In-mission smoke test.** For pilot/character mods: hire the pilot (or trigger the unlock), fly one mission, listen for voice lines, verify portrait renders. For trait/system mods: check the cantina UI, buy a trait, verify effect.
+- **No vanilla-asset copies** — this is critical for anything visual/audio. All art and audio in the mod is original or open-licensed.
+- **Check `%LOCALAPPDATA%\MW5Mercs\Saved\Logs\`** — any errors mention the mod? Quote them in the ticket.
 
 ## MUST NOT
 
