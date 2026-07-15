@@ -1,11 +1,62 @@
-# mw5-r13vergrrl
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=180&color=0:1F2937,45:78716C,100:F97316&text=R13verGrrl&fontColor=ffffff&fontAlignY=35&fontSize=42&desc=A%20hero%20pilot%20mod%20for%20MechWarrior%205%20%E2%80%94%20planning%20phase&descAlignY=57&descSize=15" />
+</p>
 
-MechWarrior 5 mod — **R13verGrrl**. Adds Chris's girlfriend as a character.
-Scaffold repo, project has not started yet.
+<p align="center">
+  <img src="https://img.shields.io/badge/MechWarrior%205-Mercenaries-F97316?style=for-the-badge" alt="MW5" />
+  <img src="https://img.shields.io/badge/Status-scaffold-yellow?style=for-the-badge" alt="Scaffold" />
+  <a href="https://github.com/gitpush-mod/mw5-r13vergrrl/issues/new?template=feature_request.md&labels=enhancement"><img src="https://img.shields.io/badge/Ideas%20welcome-green?style=for-the-badge&logo=github&logoColor=white" alt="Ideas welcome" /></a>
+</p>
 
-See [AGENTS.md](AGENTS.md) for LLM/agent context. Reference:
-[`gitpush-mod/mw5-knowledgebase`](https://github.com/gitpush-mod/mw5-knowledgebase).
+> **"A love letter, but in the form of a hireable pilot."**
+
+Personal MechWarrior 5 mod that adds Chris's girlfriend as a hero pilot. Character-addition mod — will include a custom portrait, voice lines, personality traits, and a simple unlock quest.
+
+## 🛠️ Status
+
+**Scaffold only — build not started.** This repo currently holds the plugin skeleton, `AGENTS.md`, and infrastructure. Actual pilot content, portrait, voice lines, and quest scripting come later.
+
+Research + implementation guide will live in [`RESEARCH/`](./RESEARCH/) (populated by an overnight research task).
+
+## 🎯 Design targets
+
+- ☐ Custom pilot portrait
+- ☐ Voice lines (Turkish + English, some with real cat meows in the background — a running joke)
+- ☐ Personality traits reflecting the person (strong-willed, kind, funny, a little clumsy)
+- ☐ Origin planet with a canonical BattleTech connection to Türkiye
+- ☐ Simple unlock quest — complete a random mission to make her hireable
+- ☐ Steam Workshop release
+
+## 🚀 Install *(once released)*
+
+Publish target: **Steam Workshop**. Manual install path will match the standard MW5 mod pattern:
+
+```
+%LOCALAPPDATA%\MW5Mercs\Saved\Mods\R13verGrrl\
+```
+
+## 🎯 Compatibility
+
+- 🚧 **Target:** MechWarrior 5: Mercenaries (current version, post-DLC 7)
+- Not yet playable — see status above.
+
+## 📚 Reference material
+
+- **Knowledgebase:** [`gitpush-mod/mw5-knowledgebase`](https://github.com/gitpush-mod/mw5-knowledgebase) (private) — includes `reference/ZuluBetterHeroes/` for how a working hero-pilot mod is structured.
+- **Sibling mod:** [`gitpush-mod/mw5-zulibetterheroes-reforged`](https://github.com/gitpush-mod/mw5-zulibetterheroes-reforged) — trait-tree fork of Kurst's original.
+
+## 🙌 Credits
+
+- **Author:** [Chris Carpenter (Godimas101)](https://github.com/Godimas101)
+- **Muse:** the person the mod is about — for putting up with the whole "let me put you in a mech game" thing
+- **Voice work:** *TBD* — with cameo meows from resident cats
+
+## 🧡 Support
+
+**Patreon** is where the running project log lives.
+
+[![Support on Patreon](https://raw.githubusercontent.com/Godimas101/personal-projects/main/patreon/images/buttons/patreon-medium.png)](https://patreon.com/Godimas101)
 
 ---
 
-*Part of Chris's mod collection under [`gitpush-mod`](https://github.com/gitpush-mod).*
+*Part of the [`gitpush-mod`](https://github.com/gitpush-mod) mod collection. Made with ♥ (and a lot of coffee) by Godimas + Claude.*
