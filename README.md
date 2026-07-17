@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=180&color=0:1F2937,45:78716C,100:F97316&text=R13verGrrl&fontColor=ffffff&fontAlignY=35&fontSize=42&desc=A%20hero%20pilot%20mod%20for%20MechWarrior%205%20%E2%80%94%20planning%20phase&descAlignY=57&descSize=15" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=180&color=0:1F2937,45:78716C,100:F97316&text=R13verGrrl&fontColor=ffffff&fontAlignY=35&fontSize=42&desc=A%20hero%20pilot%20mod%20for%20MechWarrior%205%20%E2%80%94%20scaffold%20ready&descAlignY=57&descSize=15" />
 </p>
 
 <p align="center">
@@ -14,13 +14,24 @@ Personal MechWarrior 5 mod that adds Chris's girlfriend as a hero pilot. Charact
 
 ## 🛠️ Status
 
-**Scaffold only — build not started.** This repo currently holds the plugin skeleton, `AGENTS.md`, and infrastructure. Actual pilot content, portrait, voice lines, and quest scripting come later.
+**Scaffold ready — editor work not started.** The plugin skeleton is in place; `RESEARCH/` has the full implementation guide, voice script, references, and open questions. Next step is opening the Mod Editor and following [`RESEARCH/01-implementation-guide.md`](./RESEARCH/01-implementation-guide.md) to build the Persona and DataTable assets.
 
-Research + implementation guide will live in [`RESEARCH/`](./RESEARCH/) (populated by an overnight research task).
+### What's in the repo
+
+| Path | What's in it |
+|------|--------------|
+| `R13verGrrl.uplugin` | UE4 plugin descriptor (data-only mod, IsMod=true) |
+| `mod.json` | Steam Workshop metadata (v0.1.0, private, `steamPublishedFileId: 0`) |
+| `Config/` | `DefaultGame.ini` + `DefaultEngine.ini` stubs |
+| `Content/Characters/R13verGrrl_Portrait.png` | 256×256 mod-ready portrait |
+| `Content/Characters/R13verGrrl_Portrait_source.png` | 900×900 original from ticket [T1](https://github.com/gitpush-mod/mw5-r13vergrrl/issues/1) — kept for future re-processing |
+| `Content/` (Personas, Data, Quests, Audio) | Empty scaffolds — populated by the Mod Editor per [T3](https://github.com/orgs/gitpush-mod/projects/12), [T4](https://github.com/orgs/gitpush-mod/projects/12), [T5](https://github.com/orgs/gitpush-mod/projects/12) |
+| `Resources/` | Placeholder for `Icon128.png` |
+| [`RESEARCH/`](./RESEARCH/) | Full implementation guide, voice script, references, open questions |
 
 ## 🎯 Design targets
 
-- ☐ Custom pilot portrait
+- ☑ **Custom pilot portrait** — 256×256 ready in `Content/Characters/` ✅
 - ☐ Voice lines (Turkish + English, some with real cat meows in the background — a running joke)
 - ☐ Personality traits reflecting the person (strong-willed, kind, funny, a little clumsy)
 - ☐ Origin planet with a canonical BattleTech connection to Türkiye
