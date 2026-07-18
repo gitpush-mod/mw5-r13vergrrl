@@ -1,5 +1,5 @@
 {
-	"displayName": "R13verGrrl - Hero Pilot",
+	"displayName": "R13verGrrl",
 	"version": "0.1.0",
 	"buildNumber": 1,
 	"description": "Adds R13verGrrl (Anatolian frontier merc) as a hireable hero pilot in MechWarrior 5: Mercenaries.\r\n\r\nPersonality: strong-willed, kind, sharp humor, a little clumsy. Loves cars and cats.\r\n\r\nCustom portrait, hire-screen greeting and mission/combat callouts in a Turkish/English mix (with real cat cameos in the background — a running joke).\r\n\r\nAvailable for hire after completing any single mission.\r\n\r\nStatus: scaffold — content in progress. See https://github.com/gitpush-mod/mw5-r13vergrrl for source and progress.",

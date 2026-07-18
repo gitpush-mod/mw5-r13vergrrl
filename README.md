@@ -26,7 +26,9 @@ Personal MechWarrior 5 mod that adds Chris's girlfriend as a hero pilot. Charact
 | `Content/Characters/R13verGrrl_Portrait.png` | 256×256 mod-ready portrait |
 | `Content/Characters/R13verGrrl_Portrait_source.png` | 900×900 original from ticket [T1](https://github.com/gitpush-mod/mw5-r13vergrrl/issues/1) — kept for future re-processing |
 | `Content/` (Personas, Data, Quests, Audio) | Empty scaffolds — populated by the Mod Editor per [T3](https://github.com/orgs/gitpush-mod/projects/12), [T4](https://github.com/orgs/gitpush-mod/projects/12), [T5](https://github.com/orgs/gitpush-mod/projects/12) |
-| `Resources/` | Placeholder for `Icon128.png` |
+| `Resources/Icon128.png` | 128×128 in-game mod-manager icon (derived from the pilot portrait) |
+| `Resources/WorkshopTile.png` | Steam Workshop tile — the Mercenary Command ID card promo |
+| `Resources/WorkshopTile_source.jpg` | Original JPG source of the Workshop tile |
 | [`RESEARCH/`](./RESEARCH/) | Full implementation guide, voice script, references, open questions |
 
 ## 🎯 Design targets
