@@ -183,7 +183,7 @@ In the Persona details panel, update:
 | **Gender** | Female | Affects voice tone & UI |
 | **Rank** | Captain or Major | Hero pilots typically rank higher |
 | **Personality Description** | "Strong-willed, kind, caring. Loves cars & cats. Sharp sense of humor, bit clumsy." | Flavor text (shown on hover) |
-| **Background Bio** | "Frontier pilot from the Anatolian territories. Known for unconventional tactics and loyalty." | Longer bio (optional) |
+| **Background Bio** | "Frontier pilot from the Anatolian territories. Known for unconventional tactics and loyalty. Prefers the old MAD chassis — cats optional." | Longer bio (optional). Canon: her preferred chassis is a **Marauder** and she keeps her cat in the cockpit. Player can put her in any mech at runtime — this is flavour, not enforcement. |
 | **Portrait Texture** | (see Step 4 below) | Reference your new portrait |
 | **Voice Persona** | (see Section 4 below) | Wire to voice lines |
 
@@ -372,6 +372,15 @@ In your HireableCharacter DataTable row, add:
 | **AvailabilityLocation** | All (or specific faction) |
 
 If the game doesn't have such fields, check **05-open-questions.md** — this may need verification.
+
+### Unlock reward (canonical): a Marauder
+
+Nil's canonical chassis is a **Marauder**. When the unlock quest fires, the reward should include a Marauder mech alongside her hire availability — reinforces the "her ride" identity from her voice lines and portrait ID card. Two ways to wire this:
+
+- **Simplest:** award a stock Marauder variant (e.g. `MAD-3R` or `MAD-5D`) via the quest's reward payload. Vanilla stats. Player can refit.
+- **Flavour-rich:** award a unique variant with a distinctive loadout tuned to her voice-line personality (heavy autocannons, a lore-appropriate paint scheme). Requires a custom mech asset — more work.
+
+Player is free to swap her out of the Marauder afterwards — the mod doesn't enforce her staying in one chassis.
 
 ### Origin Planet
 

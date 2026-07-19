@@ -6,6 +6,13 @@ Complete voice line script for the actor to record. Two tiers: **MVP (must-have,
 
 **Delivery notes:** R13verGrrl is strong-willed but warm. She's confident, a bit sarcastic, carries humor even in tense moments. Personality traits to weave in: practical, loyal, occasionally clumsy (inject a stumble or laugh where noted).
 
+**Two lore details that shape the whole recording:**
+
+1. **The cat is in the cockpit with her.** Not "back home" — right there, on the console, on the throttle, on her lap. Cat meow ambience is *canonical* on most lines, not just optional flavor. Actor should feel free to lean into the "co-pilot" relationship whenever a line has room.
+2. **Her canonical mech is a Marauder.** The player can swap her mech in-game, but lore-wise she's an old-Marauder pilot who prefers heavy autocannons. She's comfortable there. That confidence should read in combat lines and cockpit banter without needing to name the chassis.
+
+Actor is Nil recording herself — anywhere the script says "[cat's name]" as a substitute-in, use whichever cat is actually present in the room. Real cats in the mix beat placeholder pet names every time.
+
 ---
 
 ## MVP Voice Lines (MUST-HAVE: 16 lines)
@@ -46,7 +53,7 @@ The long version is ~6–8 seconds, which is long for a hire-screen loop. Whiche
 **Turkish (optional mid-line accent):**  
 "Hazırız!" (We're ready!)
 
-**Notes:** Quick, clipped delivery. She's focused. Cat meow in background is OK (subtle, she's in cockpit).
+**Notes:** Quick, clipped delivery. She's focused. **Cat meow in background is canonical, not optional** — the cat is with her in the cockpit. Keep it subtle so it doesn't overpower the vocal.
 
 ---
 
@@ -185,20 +192,20 @@ The long version is ~6–8 seconds, which is long for a hire-screen loop. Whiche
 
 ---
 
-### 12. Idle / Cockpit Banter — Cat Reference
+### 12. Idle / Cockpit Banter — Cat On The Controls
 **File:** `R13verGrrl_Idle_Cat_001.wav`  
 **Trigger:** Idle time in cockpit between missions or during downtime  
-**Delivery:** Casual, warm, nostalgic  
+**Delivery:** Playfully exasperated, warm — the way you talk to a pet that's ignoring you  
 
 **English:**  
-"I miss my cats back home. Bet they're causing trouble without me around."
+"Hey — off the throttle, [cat's name]. I told you: chair is a chair, gunnery control is *not* a chair."
 
 **Turkish (optional):**  
-"Kedilerim." (My cats.)
+"Kedi, in oradan!" (Cat, get off there!)
 
-**Background:** Real cat meow (very subtle, looped once or twice) in far background  
+**Background:** Real cat meow as the vocal ends — like the cat replied and completely ignored her.  
 
-**Notes:** This is her humanity showing. Gentle, no tension. Maybe she laughs softly. Include the cat meow as subtle background — reinforces the "my cats" line. She's thinking about home.
+**Notes:** The cat is *there*, not remembered. This is a working relationship. She adores the cat, but there's a limit. A little half-laugh at the end sells it — she loves this problem. Nil substitutes her cat's actual name in the "[cat's name]" slot.
 
 ---
 
@@ -429,6 +436,23 @@ Original line is ~6–7 sec; a shorter alt gives us flexibility depending on whe
 
 ---
 
+### E12. Cat Combat Moment — Second Cat Line
+**File:** `R13verGrrl_Idle_Cat_Combat_001.wav`  
+**Trigger:** Random idle during active combat or high-tension mission moments  
+**Delivery:** Focused, half-distracted, tender undertone  
+
+**English:**  
+"Not now, [cat's name] — mama's working. I'll pet you when the shooting stops."
+
+**Turkish (optional):**  
+"Şimdi olmaz." (Not now.)
+
+**Background:** A single insistent meow right after the vocal — the cat isn't taking the hint.
+
+**Notes:** Second cat line gives the idle rotation more life. This one's during action, not downtime — the cat is *always* around, even mid-firefight. Voice stays task-focused, but softens on "mama's working." Nil substitutes her cat's name.
+
+---
+
 ## Recording Notes for the Actor
 
 ### Tone & Personality
@@ -482,8 +506,8 @@ Original line is ~6–7 sec; a shorter alt gives us flexibility depending on whe
 | Set | Lines | Approx Time |
 |---|---|---|
 | MVP (must-have) | 16 | ~45–55 min |
-| Optional Expansion (nice-to-have) | 11 | ~30–40 min |
-| **Total** | **27** | **~75–95 min** |
+| Optional Expansion (nice-to-have) | 12 | ~35–45 min |
+| **Total** | **28** | **~80–100 min** |
 
 **Recommendation:** Record MVP in one session. If energy is good and time allows, continue to expansion. Better to have too many lines than too few — extras can be cut later; missing lines mean re-booking the booth.
 
@@ -527,6 +551,7 @@ Group B — Optional expansion (record if time):
 - [ ] `R13verGrrl_Ejection_001.wav` *(hook-uncertain)*
 - [ ] `R13verGrrl_Landing_001.wav` *(hook-uncertain)*
 - [ ] `R13verGrrl_Landing_short_001.wav` *(alt short take of E11)*
+- [ ] `R13verGrrl_Idle_Cat_Combat_001.wav` *(second cat line — mid-combat)*
 
 ---
 
