@@ -519,12 +519,12 @@ The two "hook-uncertain" lines (E10 Ejection + E11 Landing) can be recorded eith
 
 Group A — MVP (must record):
 
-- [ ] `R13verGrrl_Hire_001.wav`
+- [x] `R13verGrrl_Hire_001.wav`
 - [ ] `R13verGrrl_Hire_short_001.wav` *(alt short take of line 1)*
-- [ ] `R13verGrrl_MissionStart_001.wav`
+- [x] `R13verGrrl_MissionStart_001.wav`
 - [ ] `R13verGrrl_EnemySighted_001.wav`
-- [ ] `R13verGrrl_TakingDamage_001.wav`
-- [ ] `R13verGrrl_MechShutdown_001.wav`
+- [x] `R13verGrrl_TakingDamage_001.wav`
+- [x] `R13verGrrl_MechShutdown_001.wav`
 - [ ] `R13verGrrl_KillConfirmed_001.wav`
 - [ ] `R13verGrrl_MissionVictory_001.wav`
 - [ ] `R13verGrrl_MissionFailed_001.wav`
