@@ -525,9 +525,9 @@ Group A — MVP (must record):
 - [ ] `R13verGrrl_EnemySighted_001.wav`
 - [x] `R13verGrrl_TakingDamage_001.wav`
 - [x] `R13verGrrl_MechShutdown_001.wav`
-- [ ] `R13verGrrl_KillConfirmed_001.wav`
-- [ ] `R13verGrrl_MissionVictory_001.wav`
-- [ ] `R13verGrrl_MissionFailed_001.wav`
+- [x] `R13verGrrl_KillConfirmed_001.wav`
+- [x] `R13verGrrl_MissionVictory_001.wav`
+- [x] `R13verGrrl_MissionFailed_001.wav`
 - [ ] `R13verGrrl_Order_Copy_001.wav`
 - [ ] `R13verGrrl_Order_Moving_001.wav`
 - [ ] `R13verGrrl_Order_FallBack_001.wav`
