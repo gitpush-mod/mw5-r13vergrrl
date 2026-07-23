@@ -316,25 +316,25 @@ Read **02-voice-lines-script.md** for the full script. Quick summary:
 
 ### Wiring Voice Lines to Persona
 
-In the Persona asset, populate the **Dialogue** section:
+**Empirical event surface (2026-07-19 update):** the real MW5 Persona dialogue event slots have been discovered by inspecting PilotOverhaul-Eternal's shipping audio bank at [`github.com/blastjack85/PilotOverhaul-Eternal`](https://github.com/blastjack85/PilotOverhaul-Eternal) (path: `MW5Mercs/Plugins/PilotQuirks/ModOverride/WwiseAudio/Windows/English(US)/PO_<Pilot>_DB.book/pilot/<Pilot>/*.wem`). See **[02-voice-lines-script.md](02-voice-lines-script.md)** for the full canonical event list and mapping.
 
-| Event | SoundWave Asset |
+Event slots the Persona binds to (title-case-with-spaces, matching the shipping audio bank convention):
+
+| Category | Events |
 |---|---|
-| OnHire | R13verGrrl_Hire_001 |
-| MissionStart | R13verGrrl_MissionStart_001 |
-| EnemySighted | R13verGrrl_EnemySighted_001 |
-| TakingDamage | R13verGrrl_TakingDamage_001 |
-| MechShutdown | R13verGrrl_MechShutdown_001 |
-| KillConfirmed | R13verGrrl_KillConfirmed_001 |
-| MissionVictory | R13verGrrl_MissionVictory_001 |
-| MissionFailed | R13verGrrl_MissionFailed_001 |
-| IdleCockpit (1–3) | R13verGrrl_Idle_Car_001, Idle_Cat_001, Idle_Humor_001 |
+| **Pilot / Mission** | `Pilot Hired`, `Pilot Intro`, `Mission Intro`, `Pilot Announcement` |
+| **Spot** | `Spot Enemy`, `Spot Enemy Mech`, `Spot Enemy Vehicle`, `Spot Enemy VTOL` |
+| **Take Damage** | `Take Damage Destroy Component` (generic + LArm/LLeg/LTorso/RArm/RLeg/RTorso subvariants), `Take Damage Unit Friendly Fire Commander` |
+| **Kill Blow** | `Kill Blow Cheer`, `Kill Blow Mech Cheer`, `Kill Blow Mech Critical Cheer`, `Kill Blow Mech Head Congrats`, `Kill Blow Mech Critical Congrats`, `Kill Blow Mech Critical Congrats Commander` |
+| **Command Affirmative** | `Command Affirmative`, `+ Attack`, `+ Attack Lance`, `+ Follow`, `+ Follow Lance`, `+ Hold Fire`, `+ Hold Fire Lance`, `+ Move`, `+ Move Lance`, `+ Weapons Free` |
+| **Command Negative / Success** | `Command Negative`, `Command Negative Attack`, `Command Negative Move`, `Command Success Move` |
+| **Biome** | `Biome Arctic`, `+ Arctic Glacial`, `Biome Canyon`, `+ Canyon Lush`, `Biome Earthlike`, `+ Earthlike Desert`, `Biome Forest`, `+ Forest Autumn/Summer/Winter`, `Biome Hostile`, `+ Hostile Moon/Sulfurous/Volcanic` |
+| **Marked / Firing** | `Marked Target With Narc`, `Marked Target With Tag`, `Firing At Target Marked With Narc`, `Firing At Target Marked With Tag` |
+| **Died / Ejected** | `Died Pilot`, `Died Unit Critical`, `Died Unit Lance`, `Died Unit Lance Last Lancemate Standing`, `Ejected Critical`, `Ejected Helpless`, `Ejected Scared` |
 
-**Note:** This is a simplified model. Real implementation may require:
-- Persona → CharacterData → DialogueBank → SoundWave references
-- Possible use of Wwise banks (optional, complex)
+**Randomization:** MW5 supports multiple SoundWaves per event slot. Files ship as `<Event> 1.wem`, `<Event> 2.wem`, `<Event> 3.wem`, `<Event> 4.wem` (up to 4 variants shipped in PO). Record 2–3 takes per event and drop all files into the same slot — MW5 randomizes.
 
-Check the reference section for exact Persona structure.
+**Note:** MW5's audio pipeline uses Audiokinetic Wwise 2021.1.2.7629. In the Mod Editor, WAV files import as `SoundWave` assets; wiring to Persona dialogue slots happens on the Persona asset itself. See §5 of the [official Mod Editor Guide v2.3](https://static.mw5mercs.com/docs/MW5Mercs_Mod_Editor_Guide_(v2.3).pdf) for the Wwise import/wiring workflow.
 
 ---
 

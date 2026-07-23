@@ -1,524 +1,467 @@
 # R13verGrrl Voice Lines Recording Script
 
-Complete voice line script for the actor to record. Two tiers: **MVP (must-have, 16 lines)** and **Optional Expansion (nice-to-have, 11 lines)**.
+Complete voice line script for the actor to record. **Rewritten 2026-07-19** against the empirical MW5 event surface after inspecting PilotOverhaul-Eternal's shipping audio bank — see the change-log at the bottom for what shifted.
 
-**Estimated recording time:** ~45–55 minutes for MVP set. Full set (MVP + Expansion) ~75–95 minutes.
+**Structure:** three tiers — **Core (must-record, ~15 lines)**, **Recommended (record if possible, ~15 lines)**, and **Optional (situational depth, ~15+ lines)**.
 
-**Delivery notes:** R13verGrrl is strong-willed but warm. She's confident, a bit sarcastic, carries humor even in tense moments. Personality traits to weave in: practical, loyal, occasionally clumsy (inject a stumble or laugh where noted).
+**Estimated recording time:** Core ~40 min · Core+Recommended ~75 min · Full set ~2 hours.
 
-**Two lore details that shape the whole recording:**
+**Delivery notes:** R13verGrrl is strong-willed but warm. Confident, dry-humored, professional under pressure, occasionally clumsy. Two lore anchors shape every line:
 
-1. **The cat is in the cockpit with her.** Not "back home" — right there, on the console, on the throttle, on her lap. Cat meow ambience is *canonical* on most lines, not just optional flavor. Actor should feel free to lean into the "co-pilot" relationship whenever a line has room.
-2. **Her canonical mech is a Marauder.** The player can swap her mech in-game, but lore-wise she's an old-Marauder pilot who prefers heavy autocannons. She's comfortable there. That confidence should read in combat lines and cockpit banter without needing to name the chassis.
+1. **The cat is in the cockpit with her.** Not remembered — present. Cat meow ambience is canonical background wherever it fits. Where the script says `[cat's name]`, Nil substitutes her cat's actual name at record time.
+2. **Her canonical mech is a Marauder.** The player can put her in any chassis; the lore is that she prefers the old MAD. Confidence in cockpit banter reads without needing to name the chassis.
 
-Actor is Nil recording herself — anywhere the script says "[cat's name]" as a substitute-in, use whichever cat is actually present in the room. Real cats in the mix beat placeholder pet names every time.
+**Randomization:** MW5 fires events by *category* and randomly picks from all `.wav` files present for that event. **Record 2–3 takes per line** — they'll all get used as variants, keeping the pilot from sounding repetitive. Naming convention: `R13verGrrl_<Event>_001.wav`, `_002.wav`, `_003.wav` for takes of the same event.
 
----
-
-## MVP Voice Lines (MUST-HAVE: 16 lines)
-
-These are the core lines that fire during normal gameplay. MW5 has confirmed Persona event hooks for every event in this section. Actor should prioritize these — nothing here is optional at the MVP stage.
-
-Organized in the order a mission plays out: **hire → launch → combat → outcome → lance orders → cockpit idle**.
+**Filename mapping to MW5 events:** the wiring at T4 maps each `.wav` to a Persona dialogue-event slot named the same as the shipping convention (e.g., `Biome Arctic`, `Command Affirmative Attack`, `Take Damage Destroy Component LArm`). Filenames in this script use compact underscore form; T4 wires them to the game's title-case-with-spaces slots.
 
 ---
 
-### 1. Hire Screen Greeting
+## Tier 1 — Core (must-record, 15 lines)
+
+Fires in every mission. Skipping any of these leaves R13verGrrl silent at the most-noticeable moments.
+
+### C1. Pilot Hired
 **File:** `R13verGrrl_Hire_001.wav`  
-**Trigger:** When player hovers over her on hire screen or clicks hire  
+**Event:** `Pilot Hired`  
+**Trigger:** Player hires her from the hiring hall  
 **Delivery:** Warm, confident, inviting  
 
-**English:**  
-"Hey, thanks for the offer. Name's R13ver. I'm ready to roll whenever you are."
+**English:** "Hey, thanks for the offer. Name's R13ver. I'm ready to roll whenever you are."  
+**Turkish (optional flavor):** "Hazırım!" (I'm ready!)  
+**Short alt:** "Hey, thanks for the offer. Ready when you are." → `R13verGrrl_Hire_short_001.wav`
 
-**Turkish (optional flavor phrase to add at end):**  
-"Hazırım!" (I'm ready!)
-
-**Also record a short alt take** as `R13verGrrl_Hire_short_001.wav` — target 2–3 seconds:  
-"Hey, thanks for the offer. Ready when you are."  
-The long version is ~6–8 seconds, which is long for a hire-screen loop. Whichever plays better in-game wins; recording both takes 30 extra seconds.
-
-**Notes:** Keep upbeat but not overly bubbly. This is a professional merc saying "I can do the job." Slight pause before "I'm ready to roll."
+**Notes:** Warm smile. Slight pause before "I'm ready to roll." — this is the first thing the player hears from her.
 
 ---
 
-### 2. Mission Start
-**File:** `R13verGrrl_MissionStart_001.wav`  
-**Trigger:** Mission briefing complete, launching into combat  
+### C2. Pilot Intro (Loadout / Cockpit Boot)
+**File:** `R13verGrrl_PilotIntro_001.wav`  
+**Event:** `Pilot Intro`  
+**Trigger:** When she boots into the cockpit at mission start (before the drop)  
+**Delivery:** Task-focused, casual  
+
+**English:** "Systems green. Let's go earn some cbills."  
+**Turkish (optional):** "Hazırız." (We're ready.)
+
+**Notes:** Cockpit check moment. Cat meow in background OK.
+
+---
+
+### C3. Mission Intro (First Combat Contact)
+**File:** `R13verGrrl_MissionIntro_001.wav`  
+**Event:** `Mission Intro`  
+**Trigger:** As the mission begins (after briefing, boots hit ground)  
 **Delivery:** Alert, ready, professional  
 
-**English:**  
-"Alright, let's move out. Stay sharp out there."
+**English:** "Alright, let's move out. Stay sharp out there."  
+**Turkish (optional):** "Dikkat!" (Careful!)
 
-**Turkish (optional mid-line accent):**  
-"Hazırız!" (We're ready!)
-
-**Notes:** Quick, clipped delivery. She's focused. **Cat meow in background is canonical, not optional** — the cat is with her in the cockpit. Keep it subtle so it doesn't overpower the vocal.
+**Notes:** Clipped, focused delivery. She's on the clock.
 
 ---
 
-### 3. Enemy Contact / Radar Ping
-**File:** `R13verGrrl_EnemySighted_001.wav`  
-**Trigger:** First enemy spotted on radar  
+### C4. Spot Enemy (Generic)
+**File:** `R13verGrrl_SpotEnemy_001.wav`  
+**Event:** `Spot Enemy`  
+**Trigger:** First hostile spotted on radar (any type)  
 **Delivery:** Alert, flat + professional  
 
-**English:**  
-"Contacts on radar. Looks like we've got company."
+**English:** "Contacts on radar. We've got company."  
+**Turkish (optional):** "Düşman!" (Enemy!)
 
-**Turkish (optional):**  
-"Düşmanlar geldiler." (Enemies coming.) *— plural agreement corrected from earlier draft; native-speaker actor has final call on this phrasing.*
-
-**Notes:** Delivery should be matter-of-fact, not panicked. She's a veteran. Slight edge of tension OK.
+**Notes:** Matter-of-fact veteran. Slight edge of tension OK.
 
 ---
 
-### 4. Taking Damage
-**File:** `R13verGrrl_TakingDamage_001.wav`  
-**Trigger:** Mech takes weapon hit  
+### C5. Spot Enemy Mech
+**File:** `R13verGrrl_SpotEnemyMech_001.wav`  
+**Event:** `Spot Enemy Mech`  
+**Trigger:** First enemy MECH spotted (fires in addition to C4 if the enemy is a mech)  
+**Delivery:** Alert, focused, mech-vs-mech serious  
+
+**English:** "Enemy mech! Now it's a real fight."  
+**Turkish (optional):** "Mech geldi." (Mech incoming.)
+
+**Notes:** Different weight than seeing a vehicle — mech-on-mech is the real threat. Read seriously.
+
+---
+
+### C6. Take Damage — Generic
+**File:** `R13verGrrl_TakeDamage_001.wav`  
+**Event:** `Take Damage Destroy Component`  
+**Trigger:** Any component destroyed (generic fallback if the per-part events don't fire)  
 **Delivery:** Sharp, reactive, slightly strained  
 
-**English:**  
-"Taking fire! Return fire, let's even the odds."
+**English:** "Taking hits! Coming apart out here."  
+**Turkish (optional):** "Vurdular!" (They hit me!)
 
-**Turkish (optional):**  
-"Ateş açıyorlar!" (They're firing!)
-
-**Notes:** Real urgency here. Imagine she's been hit hard. Slight vocal strain is good. Keep it short — player hears this multiple times per mission.
+**Notes:** Real urgency. Slight vocal strain. This is one of the most-heard lines in the mod — record 2–3 solid takes for randomization variety.
 
 ---
 
-### 5. Mech Shutdown / Overheat
-**File:** `R13verGrrl_MechShutdown_001.wav`  
-**Trigger:** Mech shuts down from damage or heat  
-**Delivery:** Frustrated, urgent  
+### C7. Kill Blow — Generic Cheer
+**File:** `R13verGrrl_KillBlow_001.wav`  
+**Event:** `Kill Blow Cheer`  
+**Trigger:** She destroys any enemy unit  
+**Delivery:** Confident, satisfied, quick  
 
-**English:**  
-"Ah, damn! Systems rebooting. Hang on."
+**English:** "Target down."  
+**Turkish (optional):** "Bitti." (Done.)
 
-**Turkish (optional):**  
-"Bekle!" (Wait!)
-
-**Notes:** She's annoyed but in control. This is a tactical problem, not a panic. Slight technical hum or beep in background is OK.
+**Notes:** Under 2 seconds. Cool smirk in the voice. Player hears this a LOT — record 3 takes.
 
 ---
 
-### 6. Kill Confirmed
-**File:** `R13verGrrl_KillConfirmed_001.wav`  
-**Trigger:** Mech destroyed  
-**Delivery:** Confident, satisfied  
+### C8. Kill Blow — Mech Cheer
+**File:** `R13verGrrl_KillBlowMech_001.wav`  
+**Event:** `Kill Blow Mech Cheer`  
+**Trigger:** She specifically destroys an enemy MECH (bigger deal than a vehicle)  
+**Delivery:** More triumphant, still professional  
 
-**English:**  
-"Target down. One less problem."
+**English:** "Scratch one mech! Nice."  
+**Turkish (optional):** "İyi vuruş!" (Nice hit!)
 
-**Turkish (optional):**  
-"Hedef yok edildi." (Target destroyed.)
-
-**Notes:** Cool, professional. Maybe a tiny smirk in the voice. Quick one-liner.
+**Notes:** A shade prouder than C7. Downing a mech is a real accomplishment.
 
 ---
 
-### 7. Mission Victory
-**File:** `R13verGrrl_MissionVictory_001.wav`  
-**Trigger:** Mission objectives complete, all enemies defeated  
-**Delivery:** Upbeat, proud, relieved  
+### C9. Command Affirmative (Generic "Copy")
+**File:** `R13verGrrl_CmdAffirmative_001.wav`  
+**Event:** `Command Affirmative`  
+**Trigger:** Any player order not covered by a more specific ack (fallback)  
+**Delivery:** Crisp, professional  
 
-**English:**  
-"We did it! Nice work out there. Let's head back and celebrate."
+**English:** "Copy that."  
+**Turkish (optional):** "Anladım." (Understood.)
 
-**Turkish (optional):**  
-"Başardık!" (We did it!) *— past tense; more natural for a just-succeeded moment than the earlier `"Başaracağız!"` ("We'll make it!") which is future tense. Native-speaker actor confirms.*
-
-**Notes:** Let personality shine. She's genuinely happy. Slight laugh or smile in voice. This is the reward moment.
+**Notes:** ~1.5 sec. Workhorse ack. Record 3 takes for variety — she'll say this constantly.
 
 ---
 
-### 8. Mission Failed / Defeat
-**File:** `R13verGrrl_MissionFailed_001.wav`  
-**Trigger:** Mission failed (objectives not met or all mechs destroyed)  
-**Delivery:** Frustrated but composed  
+### C10. Command Affirmative — Move
+**File:** `R13verGrrl_CmdAffirmativeMove_001.wav`  
+**Event:** `Command Affirmative Move`  
+**Trigger:** Player orders her to a waypoint  
+**Delivery:** Alert, task-focused, motion in voice  
 
-**English:**  
-"Damn, we didn't pull that off. Next time we'll get it right."
+**English:** "Moving now."  
+**Turkish (optional):** "Yoldayım." (I'm on my way.)
 
-**Turkish (optional):**  
-"Bir dahaki sefere." (Next time.)
-
-**Notes:** Disappointed but not defeated. She's a professional who learns from losses. Slight sigh OK.
+**Notes:** She's already moving. Slight forward energy.
 
 ---
 
-### 9. Lance Order Acknowledgment — Generic "Copy That"
-**File:** `R13verGrrl_Order_Copy_001.wav`  
-**Trigger:** Player issues any order (attack, move, hold, regroup) via the lance command menu  
-**Delivery:** Crisp, professional, focused  
-
-**English:**  
-"Copy that."
-
-**Turkish (optional):**  
-"Anladım." (Understood.)
-
-**Notes:** Standard military ack. Short — target 1.5–2 seconds. This is the workhorse ack when no more specific line fits. She'll say this a LOT during a mission — keep it clean and not over-dramatic.
-
----
-
-### 10. Lance Order Acknowledgment — Moving to Waypoint
-**File:** `R13verGrrl_Order_Moving_001.wav`  
-**Trigger:** Player orders her to move to a waypoint / new position  
-**Delivery:** Alert, task-focused  
-
-**English:**  
-"On my way. Repositioning now."
-
-**Turkish (optional):**  
-"Yoldayım." (I'm on my way.)
-
-**Notes:** Slight motion/effort in the voice — she's already moving. Not out of breath, just in transit.
-
----
-
-### 11. Lance Order Acknowledgment — Falling Back
-**File:** `R13verGrrl_Order_FallBack_001.wav`  
-**Trigger:** Player orders her to retreat / regroup / disengage  
-**Delivery:** Urgent, controlled  
-
-**English:**  
-"Falling back! Regrouping now."
-
-**Turkish (optional):**  
-"Geri çekiliyorum." (I'm pulling back.)
-
-**Notes:** She's disengaging, not fleeing. Voice stays composed. Slight edge of tension OK — retreating usually means the fight got hairy.
-
----
-
-### 12. Idle / Cockpit Banter — Cat On The Controls
-**File:** `R13verGrrl_Idle_Cat_001.wav`  
-**Trigger:** Idle time in cockpit between missions or during downtime  
-**Delivery:** Playfully exasperated, warm — the way you talk to a pet that's ignoring you  
-
-**English:**  
-"Hey — off the throttle, [cat's name]. I told you: chair is a chair, gunnery control is *not* a chair."
-
-**Turkish (optional):**  
-"Kedi, in oradan!" (Cat, get off there!)
-
-**Background:** Real cat meow as the vocal ends — like the cat replied and completely ignored her.  
-
-**Notes:** The cat is *there*, not remembered. This is a working relationship. She adores the cat, but there's a limit. A little half-laugh at the end sells it — she loves this problem. Nil substitutes her cat's actual name in the "[cat's name]" slot.
-
----
-
-### 13. Idle / Cockpit Banter — Car Reference
-**File:** `R13verGrrl_Idle_Car_001.wav`  
-**Trigger:** Idle time in cockpit  
-**Delivery:** Enthusiastic, wistful  
-
-**English:**  
-"I'm gonna rebuild that hover-car when I get enough cbills. She's gonna be a beast."
-
-**Turkish (optional):**  
-"Çok hızlı olacak!" (It'll be so fast!)
-
-**Notes:** She's thinking about a personal project. Enthusiasm + daydream vibe. A little kid-in-candy-store energy is great here.
-
----
-
-### 14. Idle / Cockpit Banter — Home / Türkiye
-**File:** `R13verGrrl_Idle_Home_001.wav`  
-**Trigger:** Idle time in cockpit  
-**Delivery:** Warm, wistful, reflective  
-
-**English:**  
-"You know, this cockpit doesn't smell nearly as good as my mom's kitchen."
-
-**Turkish (optional):**  
-"Annemin mutfağı." (My mom's kitchen.)
-
-**Notes:** Family / home reference — the human under the pilot. Slight smile in voice. Reinforces her Anatolian heritage without leaning on it heavy-handedly. Should feel like a passing thought, not a monologue.
-
----
-
-### 15. Idle / Cockpit Banter — Merc Life Complaint
-**File:** `R13verGrrl_Idle_MercLife_001.wav`  
-**Trigger:** Idle time in cockpit  
-**Delivery:** Dry, complaining, but not bitter  
-
-**English:**  
-"Ration packs again. Whoever invented 'processed protein cube' owes me one home-cooked meal."
-
-**Turkish (optional):**  
-"Ah, bu yemek." (Ugh, this food.)
-
-**Notes:** Grumpy but affectionate — the way you complain about something you've made peace with. Little half-laugh at the end works. Adds relatability. Idea: swap "protein cube" for any silly sci-fi ration food if the actor prefers.
-
----
-
-### 16. General Mission Idle — Humor / Sarcasm
-**File:** `R13verGrrl_Idle_Humor_001.wav`  
-**Trigger:** Random idle line during mission downtime  
-**Delivery:** Dry humor, slightly sarcastic  
-
-**English:**  
-"You know, they said this job would be boring. They lied."
-
-**Turkish (optional):**  
-"Çok sıkıcı olacak dediler." (They said it would be boring.)
-
-**Notes:** Wry smile in her voice. Sarcastic but not mean. Shows her sense of humor in high-pressure situations. This reinforces her "great sense of humor" personality trait.
-
----
-
-## Optional Expansion (NICE-TO-HAVE: 11 lines)
-
-Record these **only if energy allows** after the MVP set is done. None of these are required for the mod to feel complete — they're texture and variety. Two of them (E10, E11) are situational: they only fire in-game if MW5 exposes the specific Persona event we hope it does; recording them now costs 2 minutes and covers the bet, but they may sit unused until a future update.
-
----
-
-### E1. Overheating Warning
-**File:** `R13verGrrl_Overheating_001.wav`  
-**Trigger:** Mech nearing heat threshold  
-**Delivery:** Warning tone, technical  
-
-**English:**  
-"Heat building up. Watch the weapons output."
-
-**Turkish (optional):**  
-"Sıcaklık artıyor." (Heat rising.)
-
----
-
-### E2. Low Ammo Callout
-**File:** `R13verGrrl_LowAmmo_001.wav`  
-**Trigger:** Primary weapon ammo low  
-**Delivery:** Urgent but calm  
-
-**English:**  
-"Ammo running low. Time to make these shots count."
-
-**Turkish (optional):**  
-"Az kaldı." (Running low.)
-
----
-
-### E3. Teammate Praise / Allied Mech Support
-**File:** `R13verGrrl_TeammateGood_001.wav`  
-**Trigger:** Squadmate eliminates enemy or provides support  
-**Delivery:** Approving, supportive  
-
-**English:**  
-"Nice shot! That's teamwork right there."
-
-**Turkish (optional):**  
-"Harika!" (Awesome!)
-
----
-
-### E4. Sarcastic Comeback (Clumsy Moment Reaction)
-**File:** `R13verGrrl_ClumsynessReaction_001.wav`  
-**Trigger:** Minor damage from friendly fire or self-inflicted (optional flavor)  
-**Delivery:** Self-deprecating humor, a laugh  
-
-**English:**  
-"Okay, okay, that was totally my fault. I'll be more careful."
-
-**Turkish (optional):**  
-"Aman tanrım!" (Oh my god!)
-
-**Notes:** Include a laugh or stumble sound. This is the "a little clumsy" trait shining through.
-
----
-
-### E5. Alliance / Faction Callout (Federated Suns)
-**File:** `R13verGrrl_FederatedSuns_001.wav`  
-**Trigger:** Fighting alongside Federated Suns faction  
-**Delivery:** Respectful, professional  
-
-**English:**  
-"Fighting with the Suns today. Solid allies, solid pay."
-
-**Turkish (optional):**  
-"İyi para." (Good money.)
-
----
-
-### E6. Enemy Faction Callout (Pirates / Periphery)
-**File:** `R13verGrrl_EnemyPirates_001.wav`  
-**Trigger:** Fighting against pirates or Periphery raiders  
-**Delivery:** Determined, slightly contemptuous  
-
-**English:**  
-"Pirates. Let's make sure they don't come back."
-
-**Turkish (optional):**  
-"Asker değiller." (They're not soldiers.)
-
----
-
-### E7. Long Mission Fatigue
-**File:** `R13verGrrl_Fatigue_001.wav`  
-**Trigger:** Extended mission or back-to-back missions  
-**Delivery:** Tired but determined  
-
-**English:**  
-"We've been out here a while. Just a little longer, we can do this."
-
-**Turkish (optional):**  
-"Dayanabilir miyiz?" (Can we make it?)
-
----
-
-### E8. Victory Celebration (Big / Boss Fight)
-**File:** `R13verGrrl_Victory_Cheer_001.wav`  
-**Trigger:** Major objective completed or boss mech defeated  
-**Delivery:** Triumphant, loud, enthusiastic  
-
-**English:**  
-"Yes! That's how it's done! We're the best!"
-
-**Turkish (optional):**  
-"Biz en iyisiyiz!" (We're the best!)
-
-**Notes:** Let her have full energy here. A cheer or fist pump in the voice. Celebrate!
-
----
-
-### E9. Lance Order — Engaging (Attack-Specific Ack)
-**File:** `R13verGrrl_Order_Engaging_001.wav`  
-**Trigger:** Player issues attack-target order specifically (variant of the generic Copy ack in MVP #9)  
+### C11. Command Affirmative — Attack
+**File:** `R13verGrrl_CmdAffirmativeAttack_001.wav`  
+**Event:** `Command Affirmative Attack`  
+**Trigger:** Player orders her to attack a specific target  
 **Delivery:** Focused, combat-ready  
 
-**English:**  
-"Engaging! Weapons hot."
+**English:** "Engaging! Weapons hot."  
+**Turkish (optional):** "Saldırıyorum!" (I'm attacking!)
 
-**Turkish (optional):**  
-"Saldırıyorum." (I'm attacking.)
-
-**Notes:** Overlaps with MVP #9 ("Copy that") for the attack case — this is a nicer, more flavor-rich variant. If the vanilla MW5 order events distinguish attack vs move, this gives us the extra colour on attack orders.
+**Notes:** Combat energy — she's already lining up the shot.
 
 ---
 
-### E10. Ejection / Emergency Bailout *(hook-uncertain — see notes)*
-**File:** `R13verGrrl_Ejection_001.wav`  
-**Trigger:** Mech critical damage, ejection sequence  
-**Delivery:** Quick, determined, slightly panicked  
+### C12. Command Affirmative — Follow
+**File:** `R13verGrrl_CmdAffirmativeFollow_001.wav`  
+**Event:** `Command Affirmative Follow`  
+**Trigger:** Player orders her to follow / hold formation  
+**Delivery:** Steady, wingman-solid  
 
-**English:**  
-"Punching out! See you on the ground."
+**English:** "Right behind you."  
+**Turkish (optional):** "Arkandayım." (I've got your back.)
 
-**Turkish (optional):**  
-"Atlıyorum!" (I'm jumping!)
-
-**Notes:** Quick 2-second line. She's in fight-or-flight mode. Should sound like she's hitting the eject button. Slight alarm tone but confident she'll make it.
-
-**Why "hook-uncertain":** Research hasn't confirmed that MW5 exposes an `OnEject` Persona event we can wire to. If it does, this line ships in v1.0. If it doesn't, it sits in the mod's audio bank for a future patch. Costs 2 minutes to record — worth the bet.
+**Notes:** Reassuring. She's the reliable wingman.
 
 ---
 
-### E11. Landing / Safe Recovery *(hook-uncertain — see notes)*
-**File:** `R13verGrrl_Landing_001.wav`  
-**Trigger:** Pilot ejected successfully, landed safely  
-**Delivery:** Relieved, checking herself  
+### C13. Command Negative (Refusal / Can't-Comply)
+**File:** `R13verGrrl_CmdNegative_001.wav`  
+**Event:** `Command Negative`  
+**Trigger:** She can't execute the order (out of range, unable, invalid target)  
+**Delivery:** Frustrated but professional  
 
-**English:**  
-"Okay, I'm down. All systems... yeah, I'm good. That was close."
+**English:** "Negative — can't get to that."  
+**Turkish (optional):** "Yapamam." (I can't.)
 
-**Also record a short alt take** as `R13verGrrl_Landing_short_001.wav` — target 2–3 seconds:  
-"I'm down. That was close."  
-Original line is ~6–7 sec; a shorter alt gives us flexibility depending on where MW5 plays this.
-
-**Turkish (optional):**  
-"Güvende." (Safe.)
-
-**Notes:** She's catching her breath. A little shaken but professional. Maybe a nervous laugh.
-
-**Why "hook-uncertain":** Same as E10 — depends on whether MW5 exposes a post-ejection landed event. Record both lines together (they're a natural pair); wire whichever the editor exposes at T4 import time.
+**Notes:** Not defiant — resigned. She wanted to but can't.
 
 ---
 
-### E12. Cat Combat Moment — Second Cat Line
-**File:** `R13verGrrl_Idle_Cat_Combat_001.wav`  
-**Trigger:** Random idle during active combat or high-tension mission moments  
-**Delivery:** Focused, half-distracted, tender undertone  
+### C14. Ejected Critical (Ejection Under Fire)
+**File:** `R13verGrrl_Ejected_001.wav`  
+**Event:** `Ejected Critical`  
+**Trigger:** Mech takes critical damage, ejection sequence  
+**Delivery:** Sharp, determined, adrenaline  
 
-**English:**  
-"Not now, [cat's name] — mama's working. I'll pet you when the shooting stops."
+**English:** "Punching out! See you on the ground."  
+**Turkish (optional):** "Atlıyorum!" (I'm jumping!)
 
-**Turkish (optional):**  
-"Şimdi olmaz." (Not now.)
+**Notes:** ~2-second line. Fight-or-flight, but confident she'll make it.
 
-**Background:** A single insistent meow right after the vocal — the cat isn't taking the hint.
+---
 
-**Notes:** Second cat line gives the idle rotation more life. This one's during action, not downtime — the cat is *always* around, even mid-firefight. Voice stays task-focused, but softens on "mama's working." Nil substitutes her cat's name.
+### C15. Died — Pilot KIA
+**File:** `R13verGrrl_Died_001.wav`  
+**Event:** `Died Pilot`  
+**Trigger:** She's killed in action  
+**Delivery:** Cut short, mid-sentence — this is a death cry  
+
+**English:** "No — cover me, I'm—" *(cut short by static / clip)*  
+**Turkish (optional):** "Hayır—!" (No—!)
+
+**Notes:** ~1 second. Should feel abrupt — the transmission cuts as she's hit. Chris (or Nil in post) can add a hard cut / static burst at the end. Don't clean-fade the trailing consonant; leave it raw.
+
+---
+
+## Tier 2 — Recommended (~15 lines)
+
+Fires frequently. Adds massive personality and combat feel — you'll notice these missing in normal play.
+
+### R1–R5. Biome Banter (5 lines — one per biome family)
+
+These fire when she's operating in a specific biome. **Cat meow ambience is a natural fit here** — she's in her cockpit rambling to the cat while flying.
+
+| # | File | Event | Delivery |
+|---|---|---|---|
+| R1 | `R13verGrrl_Biome_Arctic_001.wav` | `Biome Arctic` | Cold complaint, warm undertone |
+| R2 | `R13verGrrl_Biome_Canyon_001.wav` | `Biome Canyon` | Alert, navigational caution |
+| R3 | `R13verGrrl_Biome_Earthlike_001.wav` | `Biome Earthlike` | Nostalgic, warm |
+| R4 | `R13verGrrl_Biome_Forest_001.wav` | `Biome Forest` | Wistful, quiet |
+| R5 | `R13verGrrl_Biome_Hostile_001.wav` | `Biome Hostile` | Grim humor, alien-planet dread |
+
+**Suggested lines** (Nil is free to riff — these are seeds, not scripts):
+
+- **R1 Arctic:** "Cold up here. Cockpit heater's not what it used to be. [cat] you still with me back there?"
+- **R2 Canyon:** "Watch the elevation on radar — canyons play tricks."
+- **R3 Earthlike:** "Trees, real gravity, breathable air. Almost feels like home."
+- **R4 Forest:** "Beautiful out here. Shame we're not sightseeing."
+- **R5 Hostile:** "Mama did not raise me to breathe canned air. Let's finish this and go home."
+
+**Notes:** Each biome line is a "cockpit thought" moment — she's talking half to herself, half to the cat, half to whoever's on the radio. Warm delivery. Cat meow background welcome on any of them.
+
+---
+
+### R6. Kill Blow — Mech Critical Cheer (Finishing a Hero Mech)
+**File:** `R13verGrrl_KillBlowMechCritical_001.wav`  
+**Event:** `Kill Blow Mech Critical Cheer`  
+**Trigger:** She lands the killing blow on a hero/boss mech  
+**Delivery:** Full triumph — earned it  
+
+**English:** "Yes! Got the big one!"  
+**Turkish (optional):** "İşte bu!" (That's it!)
+
+**Notes:** Cheer, not just satisfaction. Boss kills are rare — go big.
+
+---
+
+### R7. Take Damage — Friendly Fire from Commander
+**File:** `R13verGrrl_TakeDamage_FriendlyFire_001.wav`  
+**Event:** `Take Damage Unit Friendly Fire Commander`  
+**Trigger:** Player shoots her by mistake  
+**Delivery:** Annoyed but restrained — she still likes the boss  
+
+**English:** "Hey! Watch it, boss — that's me!"  
+**Turkish (optional):** "Dikkat et!" (Watch out!)
+
+**Notes:** Not angry. Slight exasperation. She'll forgive you. Half-laugh at the end works.
+
+---
+
+### R8–R13. Take Damage per Component (6 lines — one per body part)
+
+Fires when a specific mech part is destroyed. All follow the same shape — short, sharp callout naming the part.
+
+| # | File | Event | Suggested line |
+|---|---|---|---|
+| R8 | `R13verGrrl_TakeDamage_LArm_001.wav` | `Take Damage Destroy Component LArm` | "Left arm's gone!" |
+| R9 | `R13verGrrl_TakeDamage_RArm_001.wav` | `Take Damage Destroy Component RArm` | "Right arm's off!" |
+| R10 | `R13verGrrl_TakeDamage_LLeg_001.wav` | `Take Damage Destroy Component LLeg` | "Left leg's out — I'm hobbling!" |
+| R11 | `R13verGrrl_TakeDamage_RLeg_001.wav` | `Take Damage Destroy Component RLeg` | "Right leg's blown!" |
+| R12 | `R13verGrrl_TakeDamage_LTorso_001.wav` | `Take Damage Destroy Component LTorso` | "Left side's shredded!" |
+| R13 | `R13verGrrl_TakeDamage_RTorso_001.wav` | `Take Damage Destroy Component RTorso` | "Right side's gone!" |
+
+**Delivery notes:** Real vocal strain. Short (~1.5 sec each). Slight variation per line so they don't sound copy-pasted. Add a grunt or hiss where natural.
+
+---
+
+### R14. Spot Enemy Vehicle
+**File:** `R13verGrrl_SpotEnemyVehicle_001.wav`  
+**Event:** `Spot Enemy Vehicle`  
+**Trigger:** First enemy vehicle spotted (tanks, hovercraft — not mechs)  
+**Delivery:** Slight relief — vehicles are easier  
+
+**English:** "Vehicles inbound. Should be quick work."  
+**Turkish (optional):** "Araç." (Vehicle.)
+
+**Notes:** Confident. She's not intimidated by tanks.
+
+---
+
+### R15. Command Affirmative — Weapons Free
+**File:** `R13verGrrl_CmdAffirmativeWeaponsFree_001.wav`  
+**Event:** `Command Affirmative Weapons Free`  
+**Trigger:** Player gives weapons-free order (engage anything hostile)  
+**Delivery:** Eager, hungry  
+
+**English:** "Weapons free — finally!"  
+**Turkish (optional):** "Ateş serbest!" (Fire at will!)
+
+**Notes:** Combat itch scratched. Slight predator energy.
+
+---
+
+## Tier 3 — Optional (situational depth, ~15+ lines)
+
+Fires only in specific scenarios. Skip cleanly if energy fades. Grouped for scanning.
+
+### Lance-wide command variants
+When the player orders the whole lance, the game may prefer the Lance-variant slot over the single-unit variant. Recording these gives Nil a distinct voice for group orders.
+
+- **O1** `R13verGrrl_CmdAffirmativeAttackLance_001.wav` — `Command Affirmative Attack Lance` — "Lance engaging!"
+- **O2** `R13verGrrl_CmdAffirmativeFollowLance_001.wav` — `Command Affirmative Follow Lance` — "Forming up, all pilots on you."
+- **O3** `R13verGrrl_CmdAffirmativeHoldFireLance_001.wav` — `Command Affirmative Hold Fire Lance` — "Lance holding fire."
+- **O4** `R13verGrrl_CmdAffirmativeMoveLance_001.wav` — `Command Affirmative Move Lance` — "Lance moving."
+
+### Solo command variants
+- **O5** `R13verGrrl_CmdAffirmativeHoldFire_001.wav` — `Command Affirmative Hold Fire` — "Holding fire."
+- **O6** `R13verGrrl_CmdSuccessMove_001.wav` — `Command Success Move` — "In position." (fires on waypoint arrival)
+- **O7** `R13verGrrl_CmdNegativeAttack_001.wav` — `Command Negative Attack` — "Can't take that shot."
+- **O8** `R13verGrrl_CmdNegativeMove_001.wav` — `Command Negative Move` — "Can't get there — path's blocked."
+
+### Ejection variants
+Three flavors of the same moment. `Ejected Critical` (C14) covers the standard case; these two add nuance.
+
+- **O9** `R13verGrrl_EjectedHelpless_001.wav` — `Ejected Helpless` — "Punching out — cockpit's dead!" *(defeated tone)*
+- **O10** `R13verGrrl_EjectedScared_001.wav` — `Ejected Scared` — "Getting out! Getting out!" *(rapid, adrenal)*
+
+### Lance-death events
+- **O11** `R13verGrrl_DiedUnitLance_001.wav` — `Died Unit Lance` — "We lost one. Damn." *(grief for a fallen lancemate)*
+- **O12** `R13verGrrl_DiedUnitLanceLast_001.wav` — `Died Unit Lance Last Lancemate Standing` — "It's just us. Let's finish this." *(steel-eyed, alone)*
+
+### Spotting subvariants
+- **O13** `R13verGrrl_SpotEnemyVTOL_001.wav` — `Spot Enemy VTOL` — "VTOL inbound — heads up!"
+
+### Marking & tag-targeting
+Fires when the player uses tag/narc weapons. Rare — most players don't use these.
+
+- **O14** `R13verGrrl_MarkedTargetTag_001.wav` — `Marked Target With Tag` — "Target tagged."
+- **O15** `R13verGrrl_MarkedTargetNarc_001.wav` — `Marked Target With Narc` — "Narc's on 'em."
+- **O16** `R13verGrrl_FiringAtTaggedTarget_001.wav` — `Firing At Target Marked With Tag` — "Firing on the tagged one."
+- **O17** `R13verGrrl_FiringAtNarcTarget_001.wav` — `Firing At Target Marked With Narc` — "Firing on the narc."
+
+### Kill Blow richer variants
+- **O18** `R13verGrrl_KillBlowMechHeadShot_001.wav` — `Kill Blow Mech Head Congrats` — "Headshot! Cored the cockpit!" *(fires on cockpit-kill of an enemy mech)*
+- **O19** `R13verGrrl_KillBlowMechCriticalCongratsCmdr_001.wav` — `Kill Blow Mech Critical Congrats Commander` — "Nice one, boss!" *(fires when the PLAYER kills a critical mech — she's praising you)*
+- **O20** `R13verGrrl_KillBlowMechCriticalCongrats_001.wav` — `Kill Blow Mech Critical Congrats` — "Great shot!" *(fires when a lancemate kills a critical mech)*
+
+### Biome subvariants
+If the actor is feeling generous, sub-biomes add texture. Same shape as R1–R5, more specific delivery:
+
+- `R13verGrrl_Biome_ArcticGlacial_001.wav` — `Biome Arctic Glacial` — grimmer than R1
+- `R13verGrrl_Biome_CanyonLush_001.wav` — `Biome Canyon Lush` — surprised — colour in a canyon
+- `R13verGrrl_Biome_EarthlikeDesert_001.wav` — `Biome Earthlike Desert` — tired, hot
+- `R13verGrrl_Biome_ForestAutumn_001.wav` — `Biome Forest Autumn` — reflective
+- `R13verGrrl_Biome_ForestSummer_001.wav` — `Biome Forest Summer` — light, warm
+- `R13verGrrl_Biome_ForestWinter_001.wav` — `Biome Forest Winter` — cold, quiet
+- `R13verGrrl_Biome_HostileMoon_001.wav` — `Biome Hostile Moon` — lunar strangeness
+- `R13verGrrl_Biome_HostileSulfurous_001.wav` — `Biome Hostile Sulfurous` — disgusted
+- `R13verGrrl_Biome_HostileVolcanic_001.wav` — `Biome Hostile Volcanic` — awed / careful
+
+### Miscellaneous
+- **O30** `R13verGrrl_PilotAnnouncement_001.wav` — `Pilot Announcement` — a "general talk-over-comms" moment. Exact trigger unclear; likely fires during major mission beats. Suggested: "Everyone stay tight — this one's for the story books."
+- **O31** `R13verGrrl_DiedUnitCritical_001.wav` — `Died Unit Critical` — "Boss, I'm hit hard — can't hold much longer!"
+
+---
+
+## Mapping — what's already recorded
+
+**Recording progress as of the 2026-07-19 rewrite** (from Chris's checkoff on the previous script version — commit `b4521f1`):
+
+- ✅ Recorded: `Hire_001`, `TakingDamage_001`, `MechShutdown_001`, `KillConfirmed_001`, `MissionVictory_001`, `MissionFailed_001`
+- ⏳ Not yet recorded (per the checkoff): everything else in the old MVP set
+
+Here's what each recorded file maps to under the new event system:
+
+| Old filename | Maps to (new event) | Keep as-is? |
+|---|---|---|
+| `R13verGrrl_Hire_001.wav` | **C1** `Pilot Hired` | ✅ Yes |
+| `R13verGrrl_MissionStart_001.wav` | **C3** `Mission Intro` | ✅ Yes — rename to `R13verGrrl_MissionIntro_001.wav` or keep, T4 wiring handles it |
+| `R13verGrrl_EnemySighted_001.wav` | **C4** `Spot Enemy` | ✅ Yes — rename to `R13verGrrl_SpotEnemy_001.wav` |
+| `R13verGrrl_TakingDamage_001.wav` | **C6** `Take Damage Destroy Component` (generic) | ✅ Yes — rename to `R13verGrrl_TakeDamage_001.wav` |
+| `R13verGrrl_KillConfirmed_001.wav` | **C7** `Kill Blow Cheer` | ✅ Yes — rename to `R13verGrrl_KillBlow_001.wav` |
+| `R13verGrrl_MissionVictory_001.wav` | **R6** `Kill Blow Mech Critical Cheer` (finishing a hero) | 🔄 Repurpose. The "we won" vibe works well for a triumphant boss-mech kill. Rename to `R13verGrrl_KillBlowMechCritical_001.wav`. |
+| `R13verGrrl_MissionFailed_001.wav` | No matching event | ⚠️ Dead line. Hold for now — may find a use in a future patch. |
+| `R13verGrrl_MechShutdown_001.wav` | No matching event | ⚠️ Dead line. Hold. |
+| `R13verGrrl_Order_Copy_001.wav` | **C9** `Command Affirmative` | ✅ Yes — rename to `R13verGrrl_CmdAffirmative_001.wav` |
+| `R13verGrrl_Order_Moving_001.wav` | **C10** `Command Affirmative Move` | ✅ Yes — rename to `R13verGrrl_CmdAffirmativeMove_001.wav` |
+| `R13verGrrl_Order_FallBack_001.wav` | **C13** `Command Negative` (approximate) | 🔄 Repurpose. Delivery reads more as "I'm pulling back" than a refusal, but the tone works. Rename to `R13verGrrl_CmdNegative_001.wav`. |
+| `R13verGrrl_Idle_Cat_001.wav` | No matching event | ⚠️ Dead line under Idle. **Reuse the content on R1 (Biome Arctic) or another biome line** — the "cat on the throttle" energy plays great as biome cockpit-banter. |
+| `R13verGrrl_Idle_Car_001.wav` | No matching event | ⚠️ Dead line. Hold. |
+| `R13verGrrl_Idle_Home_001.wav` | No matching event | ⚠️ Dead line — but the "mom's kitchen" line plays beautifully as R3 (`Biome Earthlike`). Consider redirecting the take. |
+| `R13verGrrl_Idle_MercLife_001.wav` | No matching event | ⚠️ Dead line. Hold. |
+| `R13verGrrl_Idle_Humor_001.wav` | No matching event | ⚠️ Dead line. Hold. |
+| `R13verGrrl_Ejection_001.wav` | **C14** `Ejected Critical` | ✅ Yes — rename to `R13verGrrl_Ejected_001.wav` |
+| `R13verGrrl_Landing_001.wav` | No matching event | ⚠️ Dead line. Hold. |
+
+**Bottom line:** ~8 already-recorded lines map cleanly. ~2 can be repurposed. ~7 are dead-line candidates that either wait for future MW5 event surface expansion or can be redirected into biome banter.
 
 ---
 
 ## Recording Notes for the Actor
 
-### Tone & Personality
+### Tone & personality (unchanged)
+- **Strength:** competent, never sounds lost even when things go wrong
+- **Warmth:** cares about the team; not cold or detached
+- **Humor:** dry, slightly sarcastic, never mean-spirited
+- **Accent:** natural Turkish rhythm is welcome; pure English is fine too
 
-- **Strength:** She's competent and confident. Never sounds lost or helpless, even when things go wrong.
-- **Warmth:** She cares about her team and mission. Not cold or detached.
-- **Humor:** Dry, slightly sarcastic, but never mean-spirited. Her jokes show resilience, not contempt.
-- **Accent:** Turkish accent (soft, not cartoonish) is OK if natural for speaker. If speaker is native English, slight Turkish rhythm/cadence on key words is fine, or keep English pure — either works.
+### Recording setup
+- **Mic:** USB condenser or better
+- **Environment:** quiet room, soft furnishings
+- **Monitoring:** headphones (catch clicks, pops, sibilance)
+- **Levels:** peaks −3 to −6 dBFS
+- **Takes per event:** 2–3 (MW5 randomizes across all files present)
 
-### Recording Setup
+### Post-processing
+- Normalize to −3 dBFS peak
+- Trim leading/trailing silence
+- Export WAV, 44.1 kHz, 16-bit, mono
+- Name per the tables above
 
-- **Microphone:** USB condenser mic or better (avoid tinny webcam mic)
-- **Environment:** Quiet room, soft furnishings to reduce echo
-- **Monitoring:** Use headphones to catch mouth noise, pops, sibilance
-- **Levels:** Record so peaks hit -3 to -6 dB (leave headroom)
-- **Multiple takes:** Record 2–3 takes per line, pick the best one
+### Language mix
+- **Primary:** English
+- **Turkish flavor phrases:** 1–2 per line where natural (optional but recommended)
+- **Cat meows:** background on Biome + Kill Blow + relaxed idle-adjacent moments
 
-### Post-Recording
-
-- Normalize to -3 dB (Audacity: Effect → Normalize)
-- Trim silence at start/end (Audacity: Truncate Silence)
-- Listen for unwanted mouth clicks, pops, background hum — clean if possible
-- Export as WAV, 44.1 kHz, 16-bit, Mono
-- Name files clearly per the checklist below
-
-### Language Mix
-
-- **Primary language:** English (all lines main delivery)
-- **Turkish flavor phrases:** 1–2 Turkish words/short phrases per line (optional but recommended)
-- **Cat meows:** Real cat audio (record your own or use royalty-free cat meow sound, must credit if used)
-
-**Why the mix?** It reinforces her Türkiye origin, adds flavor, and makes her unique. English + Turkish creates an identity.
-
-### Delivery Tips by Line Type
-
-| Type | Vibe | Tips |
-|---|---|---|
-| **Greeting/Hire** | Warm, inviting | Smile in voice, slightly lower pitch than normal speech |
-| **Mission Start** | Alert, focused | Clipped, professional, military bearing |
-| **Combat / Damage** | Urgent, strained | Real adrenaline, slight vocal strain OK |
-| **Success** | Proud, relieved | Let emotions show; this is the reward |
-| **Failure** | Disappointed but resilient | She's tough; she'll learn and move on |
-| **Lance Orders** | Crisp, professional | Short, clear ack — she's in transit, not chatting |
-| **Idle / Flavor** | Personal, casual | This is her off-duty voice; relax, be human |
-| **Humor** | Dry, slightly sarcastic | Smirk in the voice, but never mean |
+### Radio filter
+Chris is applying a radio-comm filter chain in Audacity (see conversation notes for the recipe). Deliver dry — the filter goes on afterwards.
 
 ---
 
-## Total Line Count & Time Estimate
+## Total line count & time estimate
 
-| Set | Lines | Approx Time |
-|---|---|---|
-| MVP (must-have) | 16 | ~45–55 min |
-| Optional Expansion (nice-to-have) | 12 | ~35–45 min |
-| **Total** | **28** | **~80–100 min** |
+| Tier | Lines | Approx Time (1 take each) | With 2–3 takes each |
+|---|---|---|---|
+| **Core (must)** | 15 | ~25 min | ~40 min |
+| **Recommended** | 15 | ~25 min | ~40 min |
+| **Optional (full)** | ~30 | ~40 min | ~60 min |
+| **Total (all tiers)** | ~60 | ~90 min | **~2h 20m** |
 
-**Recommendation:** Record MVP in one session. If energy is good and time allows, continue to expansion. Better to have too many lines than too few — extras can be cut later; missing lines mean re-booking the booth.
+**Recommendation:** Core in this session. Recommended if the actor is fresh. Optional over one more session on another day — recording fatigue kills quality after ~90 min.
 
-The two "hook-uncertain" lines (E10 Ejection + E11 Landing) can be recorded either with the MVP set (natural moment) or with the expansion — whichever fits the actor's flow.
+**Randomization tip:** even for Core lines, doing 2–3 takes with slightly different intonation (angry / calm / dry) gives MW5 enough variety that R13verGrrl won't feel repetitive on 20-mission playthroughs. Better to have 3 usable takes of Kill Blow than 1 perfect one.
 
 ---
 
-## File Checklist
+## Change log
 
-Group A — MVP (must record):
+**2026-07-19** — Full rewrite (this file).
 
+<<<<<<< HEAD
 - [x] `R13verGrrl_Hire_001.wav`
 - [ ] `R13verGrrl_Hire_short_001.wav` *(alt short take of line 1)*
 - [x] `R13verGrrl_MissionStart_001.wav`
@@ -536,23 +479,17 @@ Group A — MVP (must record):
 - [ ] `R13verGrrl_Idle_Home_001.wav`
 - [ ] `R13verGrrl_Idle_MercLife_001.wav`
 - [ ] `R13verGrrl_Idle_Humor_001.wav`
+=======
+Reason: empirical inspection of PilotOverhaul-Eternal's shipping audio bank (`PO_Adder_DB.book` — the same repo Chainsaw ships in, alongside 66 other pilots) plus a deep-research pass revealed the real MW5 event surface. Findings that drove the rewrite:
+>>>>>>> 8a3d7df (Rewrite script against empirical MW5 event surface (PilotOverhaul-Eternal audio bank))
 
-Group B — Optional expansion (record if time):
+- ~60 events exist per pilot, structured in categories (Biome / Command / Died / Ejected / Firing / Kill Blow / Marked / Mission / Pilot / Spot / Take Damage).
+- MW5 supports randomization: multiple `.wav` files per event, cycled at random.
+- Category "Idle" **does not exist** — the 5 idle lines in the previous script are dead-line risks.
+- Biome banter is the closest analogue to idle chatter and is missing entirely from the old script.
+- Damage-per-component (6 body-part slots) and Spot-Enemy-per-unit-type are high-frequency events missing from the old script.
+- Command acks are much richer than we scoped — 8+ variants (Attack/Follow/Hold Fire/Weapons Free × single/Lance).
 
-- [ ] `R13verGrrl_Overheating_001.wav`
-- [ ] `R13verGrrl_LowAmmo_001.wav`
-- [ ] `R13verGrrl_TeammateGood_001.wav`
-- [ ] `R13verGrrl_ClumsynessReaction_001.wav`
-- [ ] `R13verGrrl_FederatedSuns_001.wav`
-- [ ] `R13verGrrl_EnemyPirates_001.wav`
-- [ ] `R13verGrrl_Fatigue_001.wav`
-- [ ] `R13verGrrl_Victory_Cheer_001.wav`
-- [ ] `R13verGrrl_Order_Engaging_001.wav`
-- [ ] `R13verGrrl_Ejection_001.wav` *(hook-uncertain)*
-- [ ] `R13verGrrl_Landing_001.wav` *(hook-uncertain)*
-- [ ] `R13verGrrl_Landing_short_001.wav` *(alt short take of E11)*
-- [ ] `R13verGrrl_Idle_Cat_Combat_001.wav` *(second cat line — mid-combat)*
+**Previous version** — 2026-07-19 (earlier that day). Had 16 MVP + 12 Optional = 28 lines organized around a category system that predated inspection of a real audio bank. Superseded.
 
----
-
-**Next:** See **03-references.md** for sources and tutorials used in this research.
+**Historical versions** — 2026-07-14 initial research, 2026-07-19 morning expansion. See git history for the earlier drafts.

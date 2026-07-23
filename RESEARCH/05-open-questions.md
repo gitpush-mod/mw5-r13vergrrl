@@ -30,29 +30,19 @@ This document lists things we couldn't verify from research and that Chris will 
 
 ---
 
-## Q2: Persona Dialogue Event Trigger Names
+## Q2: Persona Dialogue Event Trigger Names ✅ RESOLVED (2026-07-19)
 
-**Question:** What are the exact event names / field names in the Persona asset for binding voice lines?
+**Question (original):** What are the exact event names / field names in the Persona asset for binding voice lines?
 
-**What we know:**
-- Persona assets have dialogue sections (confirmed in lore/screenshots from PilotOverhaul)
-- Voice lines wire via SoundWave references
-- Events likely include: OnHire, MissionStart, TakingDamage, EnemySighted, KillConfirmed, Victory, Failure, etc.
+**Resolution:** Empirically discovered by inspecting PilotOverhaul-Eternal's shipping audio bank at [`github.com/blastjack85/PilotOverhaul-Eternal`](https://github.com/blastjack85/PilotOverhaul-Eternal), specifically `MW5Mercs/Plugins/PilotQuirks/ModOverride/WwiseAudio/Windows/English(US)/PO_<Pilot>_DB.book/pilot/<Pilot>/*.wem`. That mod ships 67 fully-voiced pilots using the same event structure, giving us the canonical convention:
 
-**What we don't know:**
-- Exact capitalization and naming (e.g., is it `OnHire`, `OnHired`, `Hire`, `HireGreeting`?)
-- Is there a "dialogue bank" abstraction, or direct SoundWave refs?
-- Do idle lines use a randomized array or sequential list?
-- How many simultaneous dialogue events can fire (e.g., take damage + kill in same second)?
+- **Event names are title-case-with-spaces** (e.g., `Pilot Hired`, `Command Affirmative Attack`, `Take Damage Destroy Component LArm`, `Biome Arctic`).
+- **~60 events per pilot** organized into 11 categories: Pilot / Mission / Spot / Take Damage / Kill Blow / Command Affirmative / Command Negative / Command Success / Biome / Marked / Firing / Died / Ejected.
+- **Randomization IS supported** — files ship as `<Event> 1.wem`, `<Event> 2.wem`, `<Event> 3.wem`, `<Event> 4.wem`; MW5 randomly picks one variant per fire.
+- **"Idle" is NOT a category** — the old script's Idle_Cat/Car/Home/etc. lines have no matching event. Biome banter is the closest analogue for "cockpit chatter" — it's ambient-fired based on the current map.
+- **Simultaneous events:** unclear from static analysis; likely queued, but real behaviour needs in-editor observation.
 
-**To resolve:**
-1. In Mod Editor, open a vanilla Persona (e.g., `Persona_Female_Merc_01`)
-2. Double-click to inspect Details panel
-3. Look for Dialogue, Voice, Audio, or similar sections
-4. Document field names exactly as shown
-5. Check if sections are collapsible or in sub-asset
-
-**Impact:** Medium-high. Wrong field names = voice lines don't play. Easy to test once you have editor open.
+**Complete event list → see [`02-voice-lines-script.md`](02-voice-lines-script.md) and [`01-implementation-guide.md` §5](01-implementation-guide.md).**
 
 ---
 
@@ -106,30 +96,21 @@ This document lists things we couldn't verify from research and that Chris will 
 
 ---
 
-## Q5: Wwise vs. Direct WAV Import
+## Q5: Wwise vs. Direct WAV Import ✅ PARTIALLY RESOLVED (2026-07-19)
 
-**Question:** Should we use Wwise 2019.1.4.7065 for audio, or can we ship raw SoundWave assets?
+**Question (original):** Should we use Wwise 2019.1.4.7065 for audio, or can we ship raw SoundWave assets?
 
-**What we know:**
-- MW5 uses Wwise for audio (confirmed)
-- Official Mod Editor guide includes Wwise setup
-- Some mods appear to bypass Wwise and import WAV → SoundWave directly
+**Correction on version:** The correct Wwise version for current MW5 is **2021.1.2.7629** (per official Mod Editor Guide v2.3 — the earlier v2.2 spec of 2019.1.4.7065 is outdated). Version match is mandatory: the guide explicitly says "You must use the same version!"
 
-**What we don't know:**
-- Is Wwise integration required for voice lines to work?
-- If we skip Wwise, do voice events still trigger correctly?
-- Does skipping Wwise affect audio quality or features (e.g., 3D panning)?
-- Performance impact of Wwise vs. direct SoundWave?
+**Partial resolution:** Empirical inspection of PilotOverhaul-Eternal confirms **Wwise IS used in shipping pilot voice mods** — files are `.wem` (Wwise Encoded Media) inside `.book` (Wwise SoundBank) containers under `ModOverride/WwiseAudio/Windows/English(US)/PO_<Pilot>_DB.book/`. This is the proven path.
 
-**To resolve:**
-1. Try the simple path first: import WAV → SoundWave in UE4, wire to Persona
-2. Test in-game: do voice lines play?
-3. If successful, Wwise is optional (nice-to-have for future expansions)
-4. If voice lines don't trigger, investigate Wwise integration
+**Still unclear:**
+- Whether a bare-bones direct-WAV-import approach would ALSO work (some experimental modders may have gone this route).
+- Whether the Persona asset in UE4 references `SoundWave` or `AkEvent` (Wwise event) — the shipping bank uses Wwise events.
 
-**Impact:** High. Wwise setup is complex and adds ~2-3 hours. If not needed, skip it.
+**Recommendation:** For R13verGrrl v1.0, **plan on the Wwise path**. Nil records dry WAVs → we process them (trim, radio filter, cat mixdown) → then Wwise conversion + integration at T4. This matches what actual shipping pilot mods do.
 
-**Recommendation:** Skip Wwise for MVP. If voice lines work via direct SoundWave, you're done. If they don't, then explore Wwise.
+If time-boxed, the fallback for early prototypes is to try direct SoundWave import against a test Persona and see if any lines fire — but ship-ready requires Wwise.
 
 ---
 
