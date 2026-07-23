@@ -1,495 +1,579 @@
 # R13verGrrl Voice Lines Recording Script
 
-Complete voice line script for the actor to record. **Rewritten 2026-07-19** against the empirical MW5 event surface after inspecting PilotOverhaul-Eternal's shipping audio bank — see the change-log at the bottom for what shifted.
+**Written 2026-07-23** from empirical ground truth extracted directly from PilotOverhaul's shipped `PilotQuirks.pak` — specifically `PO_Adder_DB.uasset` and its `.uexp` companion, which map every event slot MW5's engine fires to a `.wem` audio file with English caption text intact.
 
-**Structure:** three tiers — **Core (must-record, ~15 lines)**, **Recommended (record if possible, ~15 lines)**, and **Optional (situational depth, ~15+ lines)**.
+**Confidence level:** high. This is straight from a working shipping mod's Persona Dialogue Book (`MWDialogueBookAsset`), which is the exact wiring the game engine uses. Not inferred from filenames. Not guessed. The tag namespace, event slot names, and interruption/cooldown metadata are all confirmed against Adder's binary.
 
-**Estimated recording time:** Core ~40 min · Core+Recommended ~75 min · Full set ~2 hours.
-
-**Delivery notes:** R13verGrrl is strong-willed but warm. Confident, dry-humored, professional under pressure, occasionally clumsy. Two lore anchors shape every line:
-
-1. **The cat is in the cockpit with her.** Not remembered — present. Cat meow ambience is canonical background wherever it fits. Where the script says `[cat's name]`, Nil substitutes her cat's actual name at record time.
-2. **Her canonical mech is a Marauder.** The player can put her in any chassis; the lore is that she prefers the old MAD. Confidence in cockpit banter reads without needing to name the chassis.
-
-**Randomization:** MW5 fires events by *category* and randomly picks from all `.wav` files present for that event. **Record 2–3 takes per line** — they'll all get used as variants, keeping the pilot from sounding repetitive. Naming convention: `R13verGrrl_<Event>_001.wav`, `_002.wav`, `_003.wav` for takes of the same event.
-
-**Filename mapping to MW5 events:** the wiring at T4 maps each `.wav` to a Persona dialogue-event slot named the same as the shipping convention (e.g., `Biome Arctic`, `Command Affirmative Attack`, `Take Damage Destroy Component LArm`). Filenames in this script use compact underscore form; T4 wires them to the game's title-case-with-spaces slots.
+Prior versions of this script (v2, v3, v4) are archived in [`archive/`](archive/) as research artefacts.
 
 ---
 
-## Tier 1 — Core (must-record, 15 lines)
+## Two lore anchors that shape every line
 
-Fires in every mission. Skipping any of these leaves R13verGrrl silent at the most-noticeable moments.
+1. **The cat is in the cockpit with her.** Not remembered — present. Cat meow ambience is canonical background wherever it fits. Where the script says `[cat's name]`, Nil substitutes her actual cat's name at record time. Chris will splice real meow layers in during post.
+2. **Her canonical mech is a Marauder** — she prefers the old MAD. Player can swap her mech; the lore is that she's most at home with heavy autocannons and comfortable armor.
 
-### C1. Pilot Hired
-**File:** `R13verGrrl_Hire_001.wav`  
-**Event:** `Pilot Hired`  
-**Trigger:** Player hires her from the hiring hall  
-**Delivery:** Warm, confident, inviting  
+**Home planet lore:** Adder in PO references "Lothario" as her homeworld (see her Arctic and Forest banter). R13verGrrl's equivalent is up to Nil — anywhere on the frontier that reads Anatolian. Pick a name once and use it consistently across biome lines for continuity. Suggested: "Anatoli" (fictional frontier planet), or lean into a real BattleTech world with Turkish-adjacent culture. Nil's call.
 
-**English:** "Hey, thanks for the offer. Name's R13ver. I'm ready to roll whenever you are."  
-**Turkish (optional flavor):** "Hazırım!" (I'm ready!)  
-**Short alt:** "Hey, thanks for the offer. Ready when you are." → `R13verGrrl_Hire_short_001.wav`
-
-**Notes:** Warm smile. Slight pause before "I'm ready to roll." — this is the first thing the player hears from her.
+**Personality:** strong-willed, warm, dry-humored, professional under pressure, occasionally clumsy, cares about the crew. Never bitter. Turkish and English mix as native — either can lead.
 
 ---
 
-### C2. Pilot Intro (Loadout / Cockpit Boot)
-**File:** `R13verGrrl_PilotIntro_001.wav`  
-**Event:** `Pilot Intro`  
-**Trigger:** When she boots into the cockpit at mission start (before the drop)  
-**Delivery:** Task-focused, casual  
+## How this script works
 
-**English:** "Systems green. Let's go earn some cbills."  
-**Turkish (optional):** "Hazırız." (We're ready.)
-
-**Notes:** Cockpit check moment. Cat meow in background OK.
+- **45 unique event slots** — every one MW5 fires for a pilot Persona, taken directly from `PO_Adder_DB`. Nothing extra, nothing missing.
+- **Target: 2–3 variants per slot** — MW5 randomly picks one file per event fire; more variants = less repetition. Adder ships with anywhere from 1 to 10 variants per slot (median ~4); we're going lean for a v1.0 with fuller coverage in a future patch.
+- **Total lines to record:** ~90–130 depending on how many variants she does per slot. Full session (~3–4 hours), or split across two days.
+- **Filename convention:** `R13verGrrl_<Slot>_<N>.wav` where `<Slot>` is a short PascalCase key (e.g., `PilotHired`, `CmdAffirmMove`, `TakeDamageLArm`) and `<N>` is the variant number (`001`, `002`, `003`). T4 wiring maps these to MW5's title-case slot names.
+- **Reference audio:** Adder's actual lines have been decoded to WAV and placed in `~/OneDrive/Desktop/R13vergrrl Lines/reference-adder-samples/`. Listen before recording adjacent slots — her delivery register (professional, warm, mercenary-grizzled) is a solid baseline. R13verGrrl reads *younger and warmer* than Adder but the same combat-veteran energy.
 
 ---
 
-### C3. Mission Intro (First Combat Contact)
-**File:** `R13verGrrl_MissionIntro_001.wav`  
-**Event:** `Mission Intro`  
-**Trigger:** As the mission begins (after briefing, boots hit ground)  
-**Delivery:** Alert, ready, professional  
+## Recording notes (unchanged from prior drafts)
 
-**English:** "Alright, let's move out. Stay sharp out there."  
-**Turkish (optional):** "Dikkat!" (Careful!)
-
-**Notes:** Clipped, focused delivery. She's on the clock.
-
----
-
-### C4. Spot Enemy (Generic)
-**File:** `R13verGrrl_SpotEnemy_001.wav`  
-**Event:** `Spot Enemy`  
-**Trigger:** First hostile spotted on radar (any type)  
-**Delivery:** Alert, flat + professional  
-
-**English:** "Contacts on radar. We've got company."  
-**Turkish (optional):** "Düşman!" (Enemy!)
-
-**Notes:** Matter-of-fact veteran. Slight edge of tension OK.
-
----
-
-### C5. Spot Enemy Mech
-**File:** `R13verGrrl_SpotEnemyMech_001.wav`  
-**Event:** `Spot Enemy Mech`  
-**Trigger:** First enemy MECH spotted (fires in addition to C4 if the enemy is a mech)  
-**Delivery:** Alert, focused, mech-vs-mech serious  
-
-**English:** "Enemy mech! Now it's a real fight."  
-**Turkish (optional):** "Mech geldi." (Mech incoming.)
-
-**Notes:** Different weight than seeing a vehicle — mech-on-mech is the real threat. Read seriously.
-
----
-
-### C6. Take Damage — Generic
-**File:** `R13verGrrl_TakeDamage_001.wav`  
-**Event:** `Take Damage Destroy Component`  
-**Trigger:** Any component destroyed (generic fallback if the per-part events don't fire)  
-**Delivery:** Sharp, reactive, slightly strained  
-
-**English:** "Taking hits! Coming apart out here."  
-**Turkish (optional):** "Vurdular!" (They hit me!)
-
-**Notes:** Real urgency. Slight vocal strain. This is one of the most-heard lines in the mod — record 2–3 solid takes for randomization variety.
-
----
-
-### C7. Kill Blow — Generic Cheer
-**File:** `R13verGrrl_KillBlow_001.wav`  
-**Event:** `Kill Blow Cheer`  
-**Trigger:** She destroys any enemy unit  
-**Delivery:** Confident, satisfied, quick  
-
-**English:** "Target down."  
-**Turkish (optional):** "Bitti." (Done.)
-
-**Notes:** Under 2 seconds. Cool smirk in the voice. Player hears this a LOT — record 3 takes.
-
----
-
-### C8. Kill Blow — Mech Cheer
-**File:** `R13verGrrl_KillBlowMech_001.wav`  
-**Event:** `Kill Blow Mech Cheer`  
-**Trigger:** She specifically destroys an enemy MECH (bigger deal than a vehicle)  
-**Delivery:** More triumphant, still professional  
-
-**English:** "Scratch one mech! Nice."  
-**Turkish (optional):** "İyi vuruş!" (Nice hit!)
-
-**Notes:** A shade prouder than C7. Downing a mech is a real accomplishment.
-
----
-
-### C9. Command Affirmative (Generic "Copy")
-**File:** `R13verGrrl_CmdAffirmative_001.wav`  
-**Event:** `Command Affirmative`  
-**Trigger:** Any player order not covered by a more specific ack (fallback)  
-**Delivery:** Crisp, professional  
-
-**English:** "Copy that."  
-**Turkish (optional):** "Anladım." (Understood.)
-
-**Notes:** ~1.5 sec. Workhorse ack. Record 3 takes for variety — she'll say this constantly.
-
----
-
-### C10. Command Affirmative — Move
-**File:** `R13verGrrl_CmdAffirmativeMove_001.wav`  
-**Event:** `Command Affirmative Move`  
-**Trigger:** Player orders her to a waypoint  
-**Delivery:** Alert, task-focused, motion in voice  
-
-**English:** "Moving now."  
-**Turkish (optional):** "Yoldayım." (I'm on my way.)
-
-**Notes:** She's already moving. Slight forward energy.
-
----
-
-### C11. Command Affirmative — Attack
-**File:** `R13verGrrl_CmdAffirmativeAttack_001.wav`  
-**Event:** `Command Affirmative Attack`  
-**Trigger:** Player orders her to attack a specific target  
-**Delivery:** Focused, combat-ready  
-
-**English:** "Engaging! Weapons hot."  
-**Turkish (optional):** "Saldırıyorum!" (I'm attacking!)
-
-**Notes:** Combat energy — she's already lining up the shot.
-
----
-
-### C12. Command Affirmative — Follow
-**File:** `R13verGrrl_CmdAffirmativeFollow_001.wav`  
-**Event:** `Command Affirmative Follow`  
-**Trigger:** Player orders her to follow / hold formation  
-**Delivery:** Steady, wingman-solid  
-
-**English:** "Right behind you."  
-**Turkish (optional):** "Arkandayım." (I've got your back.)
-
-**Notes:** Reassuring. She's the reliable wingman.
-
----
-
-### C13. Command Negative (Refusal / Can't-Comply)
-**File:** `R13verGrrl_CmdNegative_001.wav`  
-**Event:** `Command Negative`  
-**Trigger:** She can't execute the order (out of range, unable, invalid target)  
-**Delivery:** Frustrated but professional  
-
-**English:** "Negative — can't get to that."  
-**Turkish (optional):** "Yapamam." (I can't.)
-
-**Notes:** Not defiant — resigned. She wanted to but can't.
-
----
-
-### C14. Ejected Critical (Ejection Under Fire)
-**File:** `R13verGrrl_Ejected_001.wav`  
-**Event:** `Ejected Critical`  
-**Trigger:** Mech takes critical damage, ejection sequence  
-**Delivery:** Sharp, determined, adrenaline  
-
-**English:** "Punching out! See you on the ground."  
-**Turkish (optional):** "Atlıyorum!" (I'm jumping!)
-
-**Notes:** ~2-second line. Fight-or-flight, but confident she'll make it.
-
----
-
-### C15. Died — Pilot KIA
-**File:** `R13verGrrl_Died_001.wav`  
-**Event:** `Died Pilot`  
-**Trigger:** She's killed in action  
-**Delivery:** Cut short, mid-sentence — this is a death cry  
-
-**English:** "No — cover me, I'm—" *(cut short by static / clip)*  
-**Turkish (optional):** "Hayır—!" (No—!)
-
-**Notes:** ~1 second. Should feel abrupt — the transmission cuts as she's hit. Chris (or Nil in post) can add a hard cut / static burst at the end. Don't clean-fade the trailing consonant; leave it raw.
-
----
-
-## Tier 2 — Recommended (~15 lines)
-
-Fires frequently. Adds massive personality and combat feel — you'll notice these missing in normal play.
-
-### R1–R5. Biome Banter (5 lines — one per biome family)
-
-These fire when she's operating in a specific biome. **Cat meow ambience is a natural fit here** — she's in her cockpit rambling to the cat while flying.
-
-| # | File | Event | Delivery |
-|---|---|---|---|
-| R1 | `R13verGrrl_Biome_Arctic_001.wav` | `Biome Arctic` | Cold complaint, warm undertone |
-| R2 | `R13verGrrl_Biome_Canyon_001.wav` | `Biome Canyon` | Alert, navigational caution |
-| R3 | `R13verGrrl_Biome_Earthlike_001.wav` | `Biome Earthlike` | Nostalgic, warm |
-| R4 | `R13verGrrl_Biome_Forest_001.wav` | `Biome Forest` | Wistful, quiet |
-| R5 | `R13verGrrl_Biome_Hostile_001.wav` | `Biome Hostile` | Grim humor, alien-planet dread |
-
-**Suggested lines** (Nil is free to riff — these are seeds, not scripts):
-
-- **R1 Arctic:** "Cold up here. Cockpit heater's not what it used to be. [cat] you still with me back there?"
-- **R2 Canyon:** "Watch the elevation on radar — canyons play tricks."
-- **R3 Earthlike:** "Trees, real gravity, breathable air. Almost feels like home."
-- **R4 Forest:** "Beautiful out here. Shame we're not sightseeing."
-- **R5 Hostile:** "Mama did not raise me to breathe canned air. Let's finish this and go home."
-
-**Notes:** Each biome line is a "cockpit thought" moment — she's talking half to herself, half to the cat, half to whoever's on the radio. Warm delivery. Cat meow background welcome on any of them.
-
----
-
-### R6. Kill Blow — Mech Critical Cheer (Finishing a Hero Mech)
-**File:** `R13verGrrl_KillBlowMechCritical_001.wav`  
-**Event:** `Kill Blow Mech Critical Cheer`  
-**Trigger:** She lands the killing blow on a hero/boss mech  
-**Delivery:** Full triumph — earned it  
-
-**English:** "Yes! Got the big one!"  
-**Turkish (optional):** "İşte bu!" (That's it!)
-
-**Notes:** Cheer, not just satisfaction. Boss kills are rare — go big.
-
----
-
-### R7. Take Damage — Friendly Fire from Commander
-**File:** `R13verGrrl_TakeDamage_FriendlyFire_001.wav`  
-**Event:** `Take Damage Unit Friendly Fire Commander`  
-**Trigger:** Player shoots her by mistake  
-**Delivery:** Annoyed but restrained — she still likes the boss  
-
-**English:** "Hey! Watch it, boss — that's me!"  
-**Turkish (optional):** "Dikkat et!" (Watch out!)
-
-**Notes:** Not angry. Slight exasperation. She'll forgive you. Half-laugh at the end works.
-
----
-
-### R8–R13. Take Damage per Component (6 lines — one per body part)
-
-Fires when a specific mech part is destroyed. All follow the same shape — short, sharp callout naming the part.
-
-| # | File | Event | Suggested line |
-|---|---|---|---|
-| R8 | `R13verGrrl_TakeDamage_LArm_001.wav` | `Take Damage Destroy Component LArm` | "Left arm's gone!" |
-| R9 | `R13verGrrl_TakeDamage_RArm_001.wav` | `Take Damage Destroy Component RArm` | "Right arm's off!" |
-| R10 | `R13verGrrl_TakeDamage_LLeg_001.wav` | `Take Damage Destroy Component LLeg` | "Left leg's out — I'm hobbling!" |
-| R11 | `R13verGrrl_TakeDamage_RLeg_001.wav` | `Take Damage Destroy Component RLeg` | "Right leg's blown!" |
-| R12 | `R13verGrrl_TakeDamage_LTorso_001.wav` | `Take Damage Destroy Component LTorso` | "Left side's shredded!" |
-| R13 | `R13verGrrl_TakeDamage_RTorso_001.wav` | `Take Damage Destroy Component RTorso` | "Right side's gone!" |
-
-**Delivery notes:** Real vocal strain. Short (~1.5 sec each). Slight variation per line so they don't sound copy-pasted. Add a grunt or hiss where natural.
-
----
-
-### R14. Spot Enemy Vehicle
-**File:** `R13verGrrl_SpotEnemyVehicle_001.wav`  
-**Event:** `Spot Enemy Vehicle`  
-**Trigger:** First enemy vehicle spotted (tanks, hovercraft — not mechs)  
-**Delivery:** Slight relief — vehicles are easier  
-
-**English:** "Vehicles inbound. Should be quick work."  
-**Turkish (optional):** "Araç." (Vehicle.)
-
-**Notes:** Confident. She's not intimidated by tanks.
-
----
-
-### R15. Command Affirmative — Weapons Free
-**File:** `R13verGrrl_CmdAffirmativeWeaponsFree_001.wav`  
-**Event:** `Command Affirmative Weapons Free`  
-**Trigger:** Player gives weapons-free order (engage anything hostile)  
-**Delivery:** Eager, hungry  
-
-**English:** "Weapons free — finally!"  
-**Turkish (optional):** "Ateş serbest!" (Fire at will!)
-
-**Notes:** Combat itch scratched. Slight predator energy.
-
----
-
-## Tier 3 — Optional (situational depth, ~15+ lines)
-
-Fires only in specific scenarios. Skip cleanly if energy fades. Grouped for scanning.
-
-### Lance-wide command variants
-When the player orders the whole lance, the game may prefer the Lance-variant slot over the single-unit variant. Recording these gives Nil a distinct voice for group orders.
-
-- **O1** `R13verGrrl_CmdAffirmativeAttackLance_001.wav` — `Command Affirmative Attack Lance` — "Lance engaging!"
-- **O2** `R13verGrrl_CmdAffirmativeFollowLance_001.wav` — `Command Affirmative Follow Lance` — "Forming up, all pilots on you."
-- **O3** `R13verGrrl_CmdAffirmativeHoldFireLance_001.wav` — `Command Affirmative Hold Fire Lance` — "Lance holding fire."
-- **O4** `R13verGrrl_CmdAffirmativeMoveLance_001.wav` — `Command Affirmative Move Lance` — "Lance moving."
-
-### Solo command variants
-- **O5** `R13verGrrl_CmdAffirmativeHoldFire_001.wav` — `Command Affirmative Hold Fire` — "Holding fire."
-- **O6** `R13verGrrl_CmdSuccessMove_001.wav` — `Command Success Move` — "In position." (fires on waypoint arrival)
-- **O7** `R13verGrrl_CmdNegativeAttack_001.wav` — `Command Negative Attack` — "Can't take that shot."
-- **O8** `R13verGrrl_CmdNegativeMove_001.wav` — `Command Negative Move` — "Can't get there — path's blocked."
-
-### Ejection variants
-Three flavors of the same moment. `Ejected Critical` (C14) covers the standard case; these two add nuance.
-
-- **O9** `R13verGrrl_EjectedHelpless_001.wav` — `Ejected Helpless` — "Punching out — cockpit's dead!" *(defeated tone)*
-- **O10** `R13verGrrl_EjectedScared_001.wav` — `Ejected Scared` — "Getting out! Getting out!" *(rapid, adrenal)*
-
-### Lance-death events
-- **O11** `R13verGrrl_DiedUnitLance_001.wav` — `Died Unit Lance` — "We lost one. Damn." *(grief for a fallen lancemate)*
-- **O12** `R13verGrrl_DiedUnitLanceLast_001.wav` — `Died Unit Lance Last Lancemate Standing` — "It's just us. Let's finish this." *(steel-eyed, alone)*
-
-### Spotting subvariants
-- **O13** `R13verGrrl_SpotEnemyVTOL_001.wav` — `Spot Enemy VTOL` — "VTOL inbound — heads up!"
-
-### Marking & tag-targeting
-Fires when the player uses tag/narc weapons. Rare — most players don't use these.
-
-- **O14** `R13verGrrl_MarkedTargetTag_001.wav` — `Marked Target With Tag` — "Target tagged."
-- **O15** `R13verGrrl_MarkedTargetNarc_001.wav` — `Marked Target With Narc` — "Narc's on 'em."
-- **O16** `R13verGrrl_FiringAtTaggedTarget_001.wav` — `Firing At Target Marked With Tag` — "Firing on the tagged one."
-- **O17** `R13verGrrl_FiringAtNarcTarget_001.wav` — `Firing At Target Marked With Narc` — "Firing on the narc."
-
-### Kill Blow richer variants
-- **O18** `R13verGrrl_KillBlowMechHeadShot_001.wav` — `Kill Blow Mech Head Congrats` — "Headshot! Cored the cockpit!" *(fires on cockpit-kill of an enemy mech)*
-- **O19** `R13verGrrl_KillBlowMechCriticalCongratsCmdr_001.wav` — `Kill Blow Mech Critical Congrats Commander` — "Nice one, boss!" *(fires when the PLAYER kills a critical mech — she's praising you)*
-- **O20** `R13verGrrl_KillBlowMechCriticalCongrats_001.wav` — `Kill Blow Mech Critical Congrats` — "Great shot!" *(fires when a lancemate kills a critical mech)*
-
-### Biome subvariants
-If the actor is feeling generous, sub-biomes add texture. Same shape as R1–R5, more specific delivery:
-
-- `R13verGrrl_Biome_ArcticGlacial_001.wav` — `Biome Arctic Glacial` — grimmer than R1
-- `R13verGrrl_Biome_CanyonLush_001.wav` — `Biome Canyon Lush` — surprised — colour in a canyon
-- `R13verGrrl_Biome_EarthlikeDesert_001.wav` — `Biome Earthlike Desert` — tired, hot
-- `R13verGrrl_Biome_ForestAutumn_001.wav` — `Biome Forest Autumn` — reflective
-- `R13verGrrl_Biome_ForestSummer_001.wav` — `Biome Forest Summer` — light, warm
-- `R13verGrrl_Biome_ForestWinter_001.wav` — `Biome Forest Winter` — cold, quiet
-- `R13verGrrl_Biome_HostileMoon_001.wav` — `Biome Hostile Moon` — lunar strangeness
-- `R13verGrrl_Biome_HostileSulfurous_001.wav` — `Biome Hostile Sulfurous` — disgusted
-- `R13verGrrl_Biome_HostileVolcanic_001.wav` — `Biome Hostile Volcanic` — awed / careful
-
-### Miscellaneous
-- **O30** `R13verGrrl_PilotAnnouncement_001.wav` — `Pilot Announcement` — a "general talk-over-comms" moment. Exact trigger unclear; likely fires during major mission beats. Suggested: "Everyone stay tight — this one's for the story books."
-- **O31** `R13verGrrl_DiedUnitCritical_001.wav` — `Died Unit Critical` — "Boss, I'm hit hard — can't hold much longer!"
-
----
-
-## Mapping — what's already recorded
-
-**Recording progress as of the 2026-07-19 rewrite** (from Chris's checkoff on the previous script version — commit `b4521f1`):
-
-- ✅ Recorded: `Hire_001`, `TakingDamage_001`, `MechShutdown_001`, `KillConfirmed_001`, `MissionVictory_001`, `MissionFailed_001`
-- ⏳ Not yet recorded (per the checkoff): everything else in the old MVP set
-
-Here's what each recorded file maps to under the new event system:
-
-| Old filename | Maps to (new event) | Keep as-is? |
-|---|---|---|
-| `R13verGrrl_Hire_001.wav` | **C1** `Pilot Hired` | ✅ Yes |
-| `R13verGrrl_MissionStart_001.wav` | **C3** `Mission Intro` | ✅ Yes — rename to `R13verGrrl_MissionIntro_001.wav` or keep, T4 wiring handles it |
-| `R13verGrrl_EnemySighted_001.wav` | **C4** `Spot Enemy` | ✅ Yes — rename to `R13verGrrl_SpotEnemy_001.wav` |
-| `R13verGrrl_TakingDamage_001.wav` | **C6** `Take Damage Destroy Component` (generic) | ✅ Yes — rename to `R13verGrrl_TakeDamage_001.wav` |
-| `R13verGrrl_KillConfirmed_001.wav` | **C7** `Kill Blow Cheer` | ✅ Yes — rename to `R13verGrrl_KillBlow_001.wav` |
-| `R13verGrrl_MissionVictory_001.wav` | **R6** `Kill Blow Mech Critical Cheer` (finishing a hero) | 🔄 Repurpose. The "we won" vibe works well for a triumphant boss-mech kill. Rename to `R13verGrrl_KillBlowMechCritical_001.wav`. |
-| `R13verGrrl_MissionFailed_001.wav` | No matching event | ⚠️ Dead line. Hold for now — may find a use in a future patch. |
-| `R13verGrrl_MechShutdown_001.wav` | No matching event | ⚠️ Dead line. Hold. |
-| `R13verGrrl_Order_Copy_001.wav` | **C9** `Command Affirmative` | ✅ Yes — rename to `R13verGrrl_CmdAffirmative_001.wav` |
-| `R13verGrrl_Order_Moving_001.wav` | **C10** `Command Affirmative Move` | ✅ Yes — rename to `R13verGrrl_CmdAffirmativeMove_001.wav` |
-| `R13verGrrl_Order_FallBack_001.wav` | **C13** `Command Negative` (approximate) | 🔄 Repurpose. Delivery reads more as "I'm pulling back" than a refusal, but the tone works. Rename to `R13verGrrl_CmdNegative_001.wav`. |
-| `R13verGrrl_Idle_Cat_001.wav` | No matching event | ⚠️ Dead line under Idle. **Reuse the content on R1 (Biome Arctic) or another biome line** — the "cat on the throttle" energy plays great as biome cockpit-banter. |
-| `R13verGrrl_Idle_Car_001.wav` | No matching event | ⚠️ Dead line. Hold. |
-| `R13verGrrl_Idle_Home_001.wav` | No matching event | ⚠️ Dead line — but the "mom's kitchen" line plays beautifully as R3 (`Biome Earthlike`). Consider redirecting the take. |
-| `R13verGrrl_Idle_MercLife_001.wav` | No matching event | ⚠️ Dead line. Hold. |
-| `R13verGrrl_Idle_Humor_001.wav` | No matching event | ⚠️ Dead line. Hold. |
-| `R13verGrrl_Ejection_001.wav` | **C14** `Ejected Critical` | ✅ Yes — rename to `R13verGrrl_Ejected_001.wav` |
-| `R13verGrrl_Landing_001.wav` | No matching event | ⚠️ Dead line. Hold. |
-
-**Bottom line:** ~8 already-recorded lines map cleanly. ~2 can be repurposed. ~7 are dead-line candidates that either wait for future MW5 event surface expansion or can be redirected into biome banter.
-
----
-
-## Recording Notes for the Actor
-
-### Tone & personality (unchanged)
-- **Strength:** competent, never sounds lost even when things go wrong
-- **Warmth:** cares about the team; not cold or detached
-- **Humor:** dry, slightly sarcastic, never mean-spirited
-- **Accent:** natural Turkish rhythm is welcome; pure English is fine too
-
-### Recording setup
 - **Mic:** USB condenser or better
 - **Environment:** quiet room, soft furnishings
 - **Monitoring:** headphones (catch clicks, pops, sibilance)
 - **Levels:** peaks −3 to −6 dBFS
-- **Takes per event:** 2–3 (MW5 randomizes across all files present)
-
-### Post-processing
-- Normalize to −3 dBFS peak
-- Trim leading/trailing silence
-- Export WAV, 44.1 kHz, 16-bit, mono
-- Name per the tables above
-
-### Language mix
-- **Primary:** English
-- **Turkish flavor phrases:** 1–2 per line where natural (optional but recommended)
-- **Cat meows:** background on Biome + Kill Blow + relaxed idle-adjacent moments
-
-### Radio filter
-Chris is applying a radio-comm filter chain in Audacity (see conversation notes for the recipe). Deliver dry — the filter goes on afterwards.
+- **Post:** Chris trims/normalises then applies radio-comm filter chain, then splices in cat meow layers where called for
+- **Language mix:** English primary, Turkish flavor optional but strongly encouraged — 1 Turkish word/phrase per line where natural
+- **Duration target:** 1.5–4 sec per line. Adder's are mostly 1–3 sec; keep it tight
 
 ---
 
-## Total line count & time estimate
+## Tier 1 — Core mission arc (must-record, ~18 lines)
 
-| Tier | Lines | Approx Time (1 take each) | With 2–3 takes each |
+The moments the player will *definitely* hear every mission. Full personality on these.
+
+### C1. Pilot Hired (`DialogueContext.CharacterDialogue.Pilot.Hired`)
+**Trigger:** Player hires her at the hiring hall.  
+**Slot name (T4 wire):** `Pilot Hired`  
+**Adder ref (~3.2 sec):** "Glad to be aboard, Commander. You won't regret this."  
+**Delivery:** Warm, confident, first-impression. Smile in the voice.  
+
+- `PilotHired_001.wav`: "Hey, thanks for the offer. Ready when you are, Commander."
+- `PilotHired_002.wav` (TR flavor): "Merhaba, Commander. Ready to work." *(merhaba = hello)*
+
+---
+
+### C2. Pilot Intro (`DialogueContext.CharacterDialogue.Pilot.Intro`)
+**Trigger:** She boots up in the cockpit at mission start.  
+**Slot name:** `Pilot Intro`  
+**Adder ref (~2.5 sec):** "I just need a 'Mech and a target, Commander."  
+**Delivery:** Task-focused, casual, in-cockpit voice.  
+
+- `PilotIntro_001.wav`: "Systems green. Let's earn some C-Bills."
+- `PilotIntro_002.wav`: "Marauder's warm. Ready to move, Commander."
+
+---
+
+### C3–C5. Pilot Announcement (`DialogueContext.???`)
+**Trigger:** She reports in on-comms — used during scripted moments.  
+**Slot name:** `Pilot Announcement 1/2/3`  
+**Adder ref:** "Adder here." / "This is Adder." / "Adder reporting."  
+**Delivery:** Crisp, radio-style call-sign. Under 1.5 sec each.
+
+- `PilotAnnouncement_001.wav`: "R13ver here."
+- `PilotAnnouncement_002.wav`: "This is R13ver."
+- `PilotAnnouncement_003.wav`: "R13ver reporting in."
+
+---
+
+### C6–C8. Mission Intro (`DialogueContext.CharacterDialogue.Mission.Intro`)
+**Trigger:** First line she speaks after the mission starts.  
+**Slot name:** `Mission Intro 1..6` *(Adder has 6 variants — we'll do 3 for MVP)*  
+**Adder refs:** "Starting mission time." / "Well, this should be a simple op." / "Check your sightlines and stay sharp." / "Grid's clear...so far, Commander." / "All systems online, let's go hunt them down Commander." / "R.O.E? Tch, I believe that's up to us, Commander."  
+**Delivery:** Alert, ready. Slight variation per take — one focused, one slightly wry, one confident.
+
+- `MissionIntro_001.wav`: "Alright, let's move out."
+- `MissionIntro_002.wav`: "Grid looks clear. Stay sharp."
+- `MissionIntro_003.wav` (dry): "Simple op, huh? Yeah, we'll see."
+
+---
+
+### C9. Spot Enemy — Generic (`DialogueContext.Spot.Enemy`)
+**Trigger:** First hostile spotted (any type).  
+**Slot name:** `Spot Enemy 1..5`  
+**Adder refs:** "I have hostiles on radar." / "Hostiles detected." / "Contact!" / "Tangos on radar." / "Contact, enemy spotted."  
+**Delivery:** Alert, flat-professional. Short.
+
+- `SpotEnemy_001.wav`: "Contacts on radar."
+- `SpotEnemy_002.wav`: "Tangos incoming."
+- `SpotEnemy_003.wav` (Turkish): "Düşman!" *(Enemy!)*
+
+---
+
+### C10. Spot Enemy Mech (`DialogueContext.Spot.Enemy.Mech`)
+**Trigger:** First enemy *mech* specifically.  
+**Slot name:** `Spot Enemy Mech 1..7`  
+**Adder refs:** "Enemy 'Mech ahead." / "Hostile 'Mech ahead." / "Heavy metal on radar." / "Heavy metal spotted." / "Contact! BattleMech!" / "Here we go, BattleMech spotted!" / "'Mech spotted!"  
+**Delivery:** Weightier than generic contact — mech-on-mech is the real fight.
+
+- `SpotEnemyMech_001.wav`: "Enemy mech ahead."
+- `SpotEnemyMech_002.wav`: "Heavy metal! Big one, too."
+- `SpotEnemyMech_003.wav`: "Mech contact — now it's a real fight."
+
+---
+
+### C11. Command Affirmative — Generic (`DialogueContext.Command.Affirmative`)
+**Trigger:** Any player order not covered by a more specific ack.  
+**Slot name:** `Command Affirmative 1..9`  
+**Adder refs:** "Acknowledged." / "Roger." / "Affirmative." / "Order received." / "Wilco." / "Affirm." / "Copy that." / "Oscar Mike." / "On the move."  
+**Delivery:** Crisp, professional. **Record 4 — she'll say these constantly, variety kills fatigue.**
+
+- `CmdAffirm_001.wav`: "Copy that."
+- `CmdAffirm_002.wav`: "Acknowledged."
+- `CmdAffirm_003.wav`: "Roger."
+- `CmdAffirm_004.wav` (Turkish): "Anladım." *(Understood.)*
+
+---
+
+### C12. Command Affirmative — Move (`DialogueContext.Command.Affirmative.Move`)
+**Slot name:** `Command Affirmative Move 1..7`  
+**Adder refs:** "En route to location." / "Heading to location." / "Moving to assigned position." / "Navigating." / (blank in bank) / "On my way." / "Moving."  
+
+- `CmdAffirmMove_001.wav`: "On my way."
+- `CmdAffirmMove_002.wav`: "Moving now."
+- `CmdAffirmMove_003.wav` (TR): "Yoldayım." *(On my way.)*
+
+---
+
+### C13. Command Affirmative — Attack (`DialogueContext.Command.Affirmative.Attack`)
+**Slot name:** `Command Affirmative Attack 1..9`  
+**Adder refs:** "On your target." / "Copy target." / "Tango assigned." / "Targeted, on the move." / "Priority target received." / "Target ID received, moving in." / "Got your target." / "Focusing your target." / "Moving on your target."  
+**Delivery:** Combat energy — she's already lining it up.
+
+- `CmdAffirmAttack_001.wav`: "Engaging."
+- `CmdAffirmAttack_002.wav`: "On your target."
+- `CmdAffirmAttack_003.wav` (TR): "Saldırıyorum." *(Attacking.)*
+
+---
+
+### C14. Command Success — Move (`DialogueContext.Command.Success.Move`)
+**Trigger:** She *arrives* at the waypoint (not just acks the order).  
+**Slot name:** `Command Success Move 1..7`  
+**Adder refs:** "Arrived at location." / "Holding at location." / "At the assigned location." / "At the waypoint." / "Holding at your waypoint." / "I'm at your designated position." / "Holding at nav point."  
+
+- `CmdSuccessMove_001.wav`: "In position."
+- `CmdSuccessMove_002.wav`: "At the waypoint, holding."
+
+---
+
+### C15. Take Damage — Destroy Component (Generic) (`DialogueContext.TakeDamage.Destroy.Component`)
+**Trigger:** A component gets destroyed but no specific body-part slot is available.  
+**Slot name:** `Take Damage Destroy Component 1..8`  
+**Adder refs:** "Argh. Heavy hit, lost a component!" / "Armor at critical levels, lost a component!" / "Taking heavy damage!" / "I can't sustain damage like this much longer!" / "I'm under heavy fire!" / "Can't keep this up, I'm being torn to scrap here!" / "I'm being torn apart! Damage critical!" / "Mayday! Component lost! Need support here!"  
+**Delivery:** Real vocal strain. Adder gets aggressive on these — Nil should too. **Record 3 with escalating severity.**
+
+- `TakeDamage_001.wav`: "Taking heavy hits!"
+- `TakeDamage_002.wav` (louder): "Argh! Lost a component!"
+- `TakeDamage_003.wav` (strained): "I can't sustain this — need support!"
+
+---
+
+### C16. Kill Blow — Cheer (`DialogueContext.KillBlow.Cheer`)
+**Trigger:** She destroys *any* enemy unit.  
+**Slot name:** `Kill Blow Cheer 1..3`  
+**Adder refs:** "Target destroyed." / "Enemy destroyed." / "Target is down."  
+**Delivery:** Cool satisfaction. Under 2 sec. **Record 3 — high frequency.**
+
+- `KillBlow_001.wav`: "Target down."
+- `KillBlow_002.wav`: "Got them."
+- `KillBlow_003.wav` (TR): "Bitti." *(Done.)*
+
+---
+
+### C17. Kill Blow — Mech Cheer (`DialogueContext.KillBlow.Mech.Cheer`)
+**Trigger:** She specifically destroys an enemy *mech* (bigger deal than a vehicle).  
+**Slot name:** `Kill Blow Mech Cheer 1..5`  
+**Adder refs:** "Enemy 'Mech down." / "Enemy 'Mech destroyed." / "Tango down." / "Add another one to the pile." / "Scrub one."  
+**Delivery:** Proud, mercenary-satisfied. Slight smirk.
+
+- `KillBlowMech_001.wav`: "Enemy mech down!"
+- `KillBlowMech_002.wav`: "Scratch one mech."
+- `KillBlowMech_003.wav`: "That's another one on the pile."
+
+---
+
+### C18. Ejected — Critical (`DialogueContext.Ejected.Critical`)
+**Trigger:** Mech critical, ejection sequence.  
+**Slot name:** `Ejected Critical` *(single-variant in Adder)*  
+**Adder ref (~1.6 sec):** "Damn, that was close!"  
+**Delivery:** Sharp, adrenaline, still-alive relief.
+
+- `EjectedCritical_001.wav`: "Punching out! That was close."
+
+---
+
+## Tier 2 — Full command range (~14 lines)
+
+Lance orders MW5 fires when the player commands her. Without these she plays as mute during tactical direction — the most-noticeable gap for anyone who actually uses the lance UI.
+
+### R1. Command Affirmative — Attack Lance (`DialogueContext.Command.Affirmative.Attack.Lance`)
+**Slot name:** `Command Affirmative Attack Lance 1..10`  
+**Adder refs (top 3):** "Coordinating attack strategy." / "Lance target received." / "Group target received."  
+
+- `CmdAffirmAttackLance_001.wav`: "Lance target confirmed."
+- `CmdAffirmAttackLance_002.wav`: "Coordinating fire."
+
+---
+
+### R2. Command Affirmative — Follow (`DialogueContext.Command.Affirmative.Follow`)
+**Slot name:** `Command Affirmative Follow 1..8`  
+**Adder refs (top 3):** "Oscar Mike to your location." / "Lead the way." / "On your six."  
+
+- `CmdAffirmFollow_001.wav`: "Right behind you."
+- `CmdAffirmFollow_002.wav`: "On your six."
+- `CmdAffirmFollow_003.wav`: "Lead the way."
+
+---
+
+### R3. Command Affirmative — Follow Lance (`DialogueContext.Command.Affirmative.Follow.Lance`)
+**Slot name:** `Command Affirmative Follow Lance 1..5`  
+**Adder refs (top 2):** "With you." / "Following your lead, Commander."  
+
+- `CmdAffirmFollowLance_001.wav`: "Lance on you, Commander."
+- `CmdAffirmFollowLance_002.wav`: "With you, boss."
+
+---
+
+### R4. Command Affirmative — Move Lance (`DialogueContext.Command.Affirmative.Move.Lance`)
+**Slot name:** `Command Affirmative Move Lance 1..10`  
+**Adder refs (top 3):** "Group RZ acknowledged." / "Moving as a unit, Commander." / "We're on the move."  
+
+- `CmdAffirmMoveLance_001.wav`: "Lance moving."
+- `CmdAffirmMoveLance_002.wav`: "On the move as a group."
+
+---
+
+### R5. Command Affirmative — Hold Fire (`DialogueContext.Command.Affirmative.Hold_Fire`)
+**Slot name:** `Command Affirmative Hold Fire 1..5`  
+**Adder refs (top 3):** "Holding fire." / "Ceasing fire." / "Weapons hold."  
+
+- `CmdAffirmHoldFire_001.wav`: "Holding fire."
+- `CmdAffirmHoldFire_002.wav`: "Weapons hold."
+
+---
+
+### R6. Command Affirmative — Hold Fire Lance (`DialogueContext.Command.Affirmative.Hold_Fire.Lance`)
+**Slot name:** `Command Affirmative Hold Fire Lance 1..2`  
+**Adder ref:** "All weapons hold!"  
+
+- `CmdAffirmHoldFireLance_001.wav`: "Lance, all weapons hold!"
+
+---
+
+### R7. Command Affirmative — Weapons Free (`DialogueContext.Command.Affirmative.Weapons_Free`)
+**Slot name:** `Command Affirmative Weapons Free 1..3`  
+**Adder refs:** "Weapons hot." / "Weapons free." / "Hehe, weapon safeties off." *(get playful for R13verGrrl)*  
+
+- `CmdAffirmWeaponsFree_001.wav`: "Weapons hot!"
+- `CmdAffirmWeaponsFree_002.wav` (playful): "Finally — safeties off."
+
+---
+
+### R8. Command Negative (`DialogueContext.Command.Negative`)
+**Slot name:** `Command Negative 1..3`  
+**Adder refs:** "Negative, cannot complete that order." / "Unable to complete that order, Commander." / "Can't fulfill that order, Commander."  
+
+- `CmdNegative_001.wav`: "Negative — can't do that, Commander."
+- `CmdNegative_002.wav`: "Unable to comply."
+
+---
+
+### R9. Command Negative — Attack (`DialogueContext.Command.Negative.Attack`)
+**Slot name:** `Command Negative Attack 1..3`  
+**Adder refs:** "That's an invalid target." / "Sensors won't lock on Commander." / "Negative on that target order."  
+
+- `CmdNegativeAttack_001.wav`: "Can't take that shot."
+- `CmdNegativeAttack_002.wav`: "Sensors won't lock."
+
+---
+
+### R10. Command Negative — Move (`DialogueContext.Command.Negative.Move`)
+**Slot name:** `Command Negative Move 1..7`  
+**Adder refs (top 3):** "I can't make it there." / "That's an invalid location." / "Not possible."  
+
+- `CmdNegativeMove_001.wav`: "Can't get there — path's blocked."
+- `CmdNegativeMove_002.wav`: "Negative, route's out."
+
+---
+
+### R11. Spot Enemy — Vehicle (`DialogueContext.Spot.Enemy.Vehicle`)
+**Slot name:** `Spot Enemy Vehicle 1..9`  
+**Adder refs (top 3):** "Enemy vehicles in the area." / "Mobile units in the area." / "Mobile units within sensor range."  
+**Delivery:** Slight relief — vehicles are easier than mechs.
+
+- `SpotEnemyVehicle_001.wav`: "Vehicles inbound. Should be quick."
+- `SpotEnemyVehicle_002.wav`: "Enemy armor on radar."
+
+---
+
+### R12. Spot Enemy — VTOL (`DialogueContext.Spot.Enemy.VTOL`)
+**Slot name:** `Spot Enemy VTOL 1..6`  
+**Adder refs (top 3):** "Airborne hostiles on radar." / "Airborne Hostiles detected." / "Bogey ahead."  
+**Delivery:** Slight tension — flyers are annoying.
+
+- `SpotEnemyVTOL_001.wav`: "Airborne hostiles — eyes up!"
+- `SpotEnemyVTOL_002.wav`: "Bogey overhead."
+
+---
+
+### R13. Take Damage — Friendly Fire from Commander (`DialogueContext.TakeDamage.Unit.Mech.FriendlyFire.Commander`)
+**Trigger:** Player accidentally shoots her.  
+**Slot name:** `Take Damage Unit Friendly Fire Commander 1..4`  
+**Adder refs:** "Watch that stray fire!" / "Stay in your lane, I just took a hit from you!" / "Check your fire!" / "Blue on blue! Check your damn target!"  
+**Delivery:** Annoyed but not vicious. She'll forgive you.
+
+- `TakeDamageFriendlyFire_001.wav`: "Hey! Watch your fire, boss!"
+- `TakeDamageFriendlyFire_002.wav`: "Blue on blue! Check your target!"
+- `TakeDamageFriendlyFire_003.wav` (dry): "You know I'm on your side, right?"
+
+---
+
+### R14. Kill Blow — Mech Critical Cheer (`DialogueContext.KillBlow.Mech.Critical.Cheer`)
+**Trigger:** Enemy mech nearing critical — reactor about to blow.  
+**Slot name:** `Kill Blow Mech Critical Cheer 1..3`  
+**Adder refs:** "Watch that 'Mech, it's going critical." / "That kill's reactor is about to go." / "Clear that splashed target, it's about to go critical."  
+
+- `KillBlowMechCritical_001.wav`: "That one's going critical — reactor's cooking!"
+- `KillBlowMechCritical_002.wav`: "Clear back — that mech's about to blow!"
+
+---
+
+## Tier 3 — Per-component damage (6 lines)
+
+Six body-part destruction callouts. Real vocal strain, ~1.5 sec each. Adder is unambiguous on these — one line each, no variants.
+
+| Slot | Adder ref | R13verGrrl file | Suggested line |
 |---|---|---|---|
-| **Core (must)** | 15 | ~25 min | ~40 min |
-| **Recommended** | 15 | ~25 min | ~40 min |
-| **Optional (full)** | ~30 | ~40 min | ~60 min |
-| **Total (all tiers)** | ~60 | ~90 min | **~2h 20m** |
+| `Take Damage Destroy Component LArm` | "Left arm's gone!" | `TakeDamageLArm_001.wav` | "Left arm — gone!" |
+| `Take Damage Destroy Component RArm` | "My right arm's gone!" | `TakeDamageRArm_001.wav` | "Right arm's off!" |
+| `Take Damage Destroy Component LLeg` | "My left leg's gone! I'm hobbled!" | `TakeDamageLLeg_001.wav` | "Left leg's out — I'm hobbling!" |
+| `Take Damage Destroy Component RLeg` | "Right leg disabled, I'm stuck at slow speed!" | `TakeDamageRLeg_001.wav` | "Right leg's blown — moving slow!" |
+| `Take Damage Destroy Component LTorso` | "Argh! Left torso destroyed!" | `TakeDamageLTorso_001.wav` | "Argh! Left side's gone!" |
+| `Take Damage Destroy Component RTorso` | "My right torso's destroyed!" | `TakeDamageRTorso_001.wav` | "Right torso — shredded!" |
 
-**Recommendation:** Core in this session. Recommended if the actor is fresh. Optional over one more session on another day — recording fatigue kills quality after ~90 min.
+**Note:** DialogueContext for RArm is `DialogueContext.TakeDamage.Destroy.Component.Rarm` (lowercase 'arm' — appears to be a typo in the game engine, per the extracted string dump). Filename on our side uses `RArm` regardless; T4 wiring accounts for the case discrepancy.
 
-**Randomization tip:** even for Core lines, doing 2–3 takes with slightly different intonation (angry / calm / dry) gives MW5 enough variety that R13verGrrl won't feel repetitive on 20-mission playthroughs. Better to have 3 usable takes of Kill Blow than 1 perfect one.
+---
+
+## Tier 4 — Death and ejection (7 lines)
+
+The dramatic slots. Adder is unrestrained on these — "Damn it, no! Shit, shit, shit!" Take Nil off the leash on delivery.
+
+### D1. Died Pilot (`DialogueContext.Died.Pilot`)
+**Slot name:** `Died Pilot`  
+**Adder ref (~3.6 sec):** "Damn it, no! Shit, shit, shit!"  
+**Delivery:** Full commitment — this is her death cry. Cut short, mid-sentence.
+
+- `DiedPilot_001.wav`: "No — cover me, I'm—" *(cut short by static)*
+- `DiedPilot_002.wav` (TR): "Hayır, hayır—!" *(No, no—!)*
+
+### D2. Died Unit Critical (`DialogueContext.Died.Unit.Critical`)
+**Slot name:** `Died Unit Critical`  
+**Adder ref:** "Curses, my 'Mech's gone crtical, I need to eject!"  
+**Delivery:** Urgent, mech-critical announcement — she's about to eject, not dead.
+
+- `DiedUnitCritical_001.wav`: "Mech's gone critical — I'm ejecting!"
+
+### D3. Died Unit Lance (`DialogueContext.Died.Unit.Lance`)
+**Trigger:** A lancemate dies.  
+**Slot name:** `Died Unit Lance 1..4`  
+**Adder refs:** "Blast, we lost a 'Mech!" / "Lancemate down!" / "Damn them, they took down a friendly!" / "Friendly down!"  
+
+- `DiedUnitLance_001.wav`: "Lancemate down!"
+- `DiedUnitLance_002.wav`: "We lost one. Damn."
+
+### D4. Died Unit Lance — Last Lancemate Standing (`DialogueContext.Died.Unit.Lance.LastLancemateStanding`)
+**Trigger:** Everyone in the lance except her and the player is dead.  
+**Slot name:** `Died Unit Lance Last Lancemate Standing 1..3`  
+**Adder refs:** "It's down to just the two of us, Commander." / "Just you and me left, Commander." / "Two of us left, take point and I'll cover."  
+**Delivery:** Steel-eyed. She's not scared — she's *ready*.
+
+- `DiedLastLancemate_001.wav`: "It's just us, Commander. Let's finish this."
+- `DiedLastLancemate_002.wav`: "You and me. Take point, I'll cover."
+
+### D5. Ejected Helpless (`DialogueContext.Ejected.Helpless`)
+**Slot name:** `Ejected Helpless 1..4`  
+**Adder refs:** "Weapons wiped, I need to eject." / "Fighting effectiveness zeroed, ejecting!" / "My 'Mech's dead, I need to eject." / "No longer effective, ejecting."  
+**Delivery:** Defeated tone — she's not scared, she's *done*.
+
+- `EjectedHelpless_001.wav`: "Weapons wiped — punching out."
+- `EjectedHelpless_002.wav`: "Mech's dead. Ejecting."
+
+### D6. Ejected Scared (`DialogueContext.Ejected.Scared`)
+**Slot name:** `Ejected Scared 1..3`  
+**Adder refs:** "Another hit and I'm dead. I need to punch out." / "All systems critical! Ejecting!" / "Reactor containment failure! Damn it, ejecting."  
+**Delivery:** Rapid, adrenal, real panic edge. Contrast with D5.
+
+- `EjectedScared_001.wav`: "Reactor's going! Getting out! Getting out!"
+- `EjectedScared_002.wav`: "All critical! Punching out — now!"
+
+---
+
+## Tier 5 — Biome banter (13 slots, 2 variants each = ~26 lines)
+
+**The cat's home.** These are the ambient cockpit-chatter lines that fire while she's flying through specific biomes. Cat meow background layer belongs on many of these.
+
+**Adder writes these as a mercenary observing her environment** — often referencing home ("Reminds me a bit of Lothario"), work colleagues ("Any bets on how long Fahad's gonna complain about sand"), professional considerations ("Those flat tops will make excellent firing positions"). Nil should do the same — reference "her Anatolian frontier home" (Chris/Nil name it), reference known R13verGrrl characters/pets, and keep the cockpit-thinking voice.
+
+### B1. Biome Arctic (`DialogueContext.CharacterDialogue.Biome.Arctic`)
+**Slot name:** `Biome Arctic 1..4`  
+**Adder ref:** "Cold. Reminds me a bit of Lothario"  
+**Delivery:** Reflective, half to the cat.
+
+- `BiomeArctic_001.wav`: "Cold up here. Cockpit heater's not what it used to be."
+- `BiomeArctic_002.wav`: "[cat's name], you still warm back there?" *(with cat meow post-splice)*
+
+### B2. Biome Arctic Glacial (`DialogueContext.CharacterDialogue.Biome.Arctic.Glacial`)
+**Slot name:** `Biome Arctic Glacial 1..4`  
+**Adder ref:** "This place is freezing, even for me."  
+
+- `BiomeArcticGlacial_001.wav`: "Even for me, this is cold."
+- `BiomeArcticGlacial_002.wav` (Turkish): "Buz gibi." *(Ice-cold.)*
+
+### B3. Biome Canyon (`DialogueContext.CharacterDialogue.Biome.Canyon`)
+**Slot name:** `Biome Canyon 1..4`  
+**Adder refs:** "Nothing here but dust and tumbleweeds." / "Dust, dust, and more dust. My eyes are blurring this place is so boring."  
+
+- `BiomeCanyon_001.wav`: "Watch the elevation on radar — canyons play tricks."
+- `BiomeCanyon_002.wav` (dry): "Dust. So much dust."
+
+### B4. Biome Canyon Lush (`DialogueContext.CharacterDialogue.Biome.Canyon.Lush`)
+**Slot name:** `Biome Canyon Lush 1..4`  
+**Adder refs:** "How the hell does anything grow in a place like this?" / "Easy to get lost in this damn canyon."  
+
+- `BiomeCanyonLush_001.wav`: "How does anything grow down here?"
+- `BiomeCanyonLush_002.wav`: "Watch your bearings — easy to get turned around."
+
+### B5. Biome Earthlike (`DialogueContext.CharacterDialogue.Biome.Earthlike`)
+**Slot name:** `Biome Earthlike` *(single variant — no numbered suffix)*  
+**Adder ref:** "This place looks familiar. I probably fought here before."  
+
+- `BiomeEarthlike_001.wav`: "Feels like a place I could actually live in."
+
+### B6. Biome Earthlike Desert (`DialogueContext.CharacterDialogue.Biome.Earthlike.Desert`)
+**Slot name:** `Biome Earthlike Desert` *(single variant)*  
+**Adder ref:** "Any bets on how long Fahad's gonna complain about sand in the actuators?"  
+
+- `BiomeEarthlikeDesert_001.wav`: "I forgot how much I don't miss the sun back home."
+
+### B7. Biome Forest (`DialogueContext.CharacterDialogue.Biome.Forest`)
+**Slot name:** `Biome Forest 1..4`  
+**Adder refs:** "Forest, trees, wildlife...I'll have to remember this place." / "Damn shame we're about to wreck this place."  
+
+- `BiomeForest_001.wav`: "Beautiful out here. Shame we're not sightseeing."
+- `BiomeForest_002.wav`: "Trees. Real cover. That's a nice change."
+
+### B8. Biome Forest Autumn (`DialogueContext.CharacterDialogue.Biome.Forest.Autumn`)
+**Slot name:** `Biome Forest Autumn 1..4`  
+**Adder refs:** "It's fall here. Good huntin' times now." / "Nice view. Also nice cover."  
+
+- `BiomeForestAutumn_001.wav`: "Fall colors. My grandmother would have loved this."
+- `BiomeForestAutumn_002.wav`: "Nice cover in the leaves — use it."
+
+### B9. Biome Forest Summer (`DialogueContext.CharacterDialogue.Biome.Forest.Summer`)
+**Slot name:** `Biome Forest Summer 1..4`  
+**Adder refs:** "Looks like it's getting hot." / "Reminds me of the place I retired to. Just hotter."  
+
+- `BiomeForestSummer_001.wav`: "Heat's coming up. Watch your cooling."
+- `BiomeForestSummer_002.wav`: "Reminds me of summers back home."
+
+### B10. Biome Forest Winter (`DialogueContext.CharacterDialogue.Biome.Forest.Winter`)
+**Slot name:** `Biome Forest Winter 1..4`  
+**Adder refs:** "This fresh snow could give us fresh 'Mech tracks to follow." / "Pure white snow. Should make our targets stand out by comparison."  
+
+- `BiomeForestWinter_001.wav`: "Fresh snow. Tracks will show."
+- `BiomeForestWinter_002.wav`: "Targets will stand out against the white."
+
+### B11. Biome Hostile (`DialogueContext.CharacterDialogue.Biome.Hostile`)
+**Slot name:** `Biome Hostile 1..4`  
+**Adder refs:** "I know I complained about the glacial planets, but I think I'd rather be back there now." / "Doesn't look like there's many life signs around."  
+
+- `BiomeHostile_001.wav`: "Mama did not raise me to breathe canned air."
+- `BiomeHostile_002.wav`: "Let's finish this and get back to a real planet."
+
+### B12. Biome Hostile Moon (`DialogueContext.CharacterDialogue.Biome.Hostile.Moon`)
+**Slot name:** `Biome Hostile Moon 1..2`  
+**Adder refs:** "The lack of noise is grating." / "This low atmosphere is really messing up my reactions."  
+
+- `BiomeHostileMoon_001.wav`: "Low gravity — watch your recoil."
+- `BiomeHostileMoon_002.wav`: "Too quiet up here."
+
+### B13. Biome Hostile Sulfurous + Volcanic (grouped — 3 slots, 3 lines)
+| Slot | Adder ref | R13verGrrl file | Suggested |
+|---|---|---|---|
+| `Biome Hostile Sulfurous 1..2` | "This has to be the worst battlefield I've ever been on." | `BiomeHostileSulfurous_001.wav` | "This air is going to eat the seals off my cockpit." |
+| `Biome Hostile Volcanic` (single) | "Are our enemies actively trying to find the worst places to fight?" | `BiomeHostileVolcanic_001.wav` | "Really? Volcanoes? Who picks these contracts?" |
+
+---
+
+## Tier 6 — Kill Blow richer variants (5 lines)
+
+More flavor on kills. Adder splits these by *who* got the kill and *how*.
+
+| Slot | Adder ref | R13verGrrl file | Suggested |
+|---|---|---|---|
+| `Kill Blow Mech Critical Congrats` (fires when a lancemate kills a critical mech) | "Nice one, though you coulda left some salvage for us." | `KillBlowMechCriticalCongrats_001.wav` | "Nice one — though you left me no salvage." |
+| `Kill Blow Mech Critical Congrats Commander` (fires when the *player* kills a critical mech) | "Commander, you gonna leave any salvage for later?" | `KillBlowMechCriticalCongratsCmdr_001.wav` | "Boss, save some parts for us next time!" |
+| `Kill Blow Mech Head Congrats 1..2` (fires on cockpit-kill of a mech) | "Nice shot, right in the head." / "Headshot. Lot's of salvage left on that one." | `KillBlowMechHeadCongrats_001.wav` | "Headshot — clean kill, cleaner salvage." |
+
+---
+
+## Tier 7 — Tactical marking (12 lines)
+
+Marked Target + Firing At Target — fires when using tag/narc weapons. Rare in normal play; skippable if fatigue is real. **Adder's takes are technical and matter-of-fact** ("Marked that target with a Narc.") — Nil can match or riff.
+
+| Slot | Adder ref (first variant) | R13verGrrl file | Suggested |
+|---|---|---|---|
+| `Marked Target With Narc 1..3` | "Marked that target with a Narc." | `MarkedTargetNarc_001.wav` | "Narc's on 'em." |
+| `Marked Target With Tag 1..4` | "Lighting up that hostile with TAG." | `MarkedTargetTag_001.wav` | "Target tagged." |
+| `Firing At Target Marked With Narc 1..4` | "Heh, Narc makes this too easy." | `FiringAtNarcTarget_001.wav` | "Firing on the Narc'd one." |
+| `Firing At Target Marked With Tag 1..4` | "Firing on the lit target!" | `FiringAtTaggedTarget_001.wav` | "Firing on the tagged target." |
+
+**Record 2 variants of each = 8 lines total for full coverage.**
+
+---
+
+## Total line count & recording plan
+
+| Tier | Slots | Variants (target) | Lines | Est time (2 min/line) |
+|---|---|---|---|---|
+| **1 — Core mission arc** | 18 | 1-4 | ~35 | 70 min |
+| **2 — Full command range** | 14 | 2 | ~28 | 55 min |
+| **3 — Per-component damage** | 6 | 1 | 6 | 12 min |
+| **4 — Death and ejection** | 6 | 1-2 | ~10 | 20 min |
+| **5 — Biome banter** | 13 | 2 | ~26 | 55 min |
+| **6 — Kill Blow variants** | 3 | 1 | 3 | 6 min |
+| **7 — Tactical marking** | 4 | 2 | 8 | 15 min |
+| **TOTAL** | **~65** | | **~116** | **~4 hours** |
+
+**Recommended session structure:**
+- Session 1 (~2 hours): Tiers 1 + 3 + 4 — core mission arc, damage callouts, death/eject (~50 lines). Everything the player will absolutely hear.
+- Session 2 (~2 hours): Tiers 2 + 5 + 6 + 7 — full command range, biome banter, kill variants, marking (~65 lines). Depth and personality layer.
+
+**Pre-session prep:**
+1. Nil listens to `~/OneDrive/Desktop/R13vergrrl Lines/reference-adder-samples/` — 10 samples of Adder covering the emotional range.
+2. Nil picks R13verGrrl's homeworld name (equivalent to Adder's "Lothario") — used in Biome Arctic, Forest, Home variants.
+3. Nil picks the cat's actual name for `[cat's name]` slots (or Chris confirms via post).
+
+**Post-recording pipeline:**
+1. Trim + normalize (Nil, in Audacity)
+2. Radio filter chain (Chris)
+3. Cat meow layering where called for (Claude, at Chris's direction)
+4. Import to Mod Editor as SoundWave assets → wire into `PO_R13verGrrl_DB.uasset`-equivalent Dialogue Book → each event slot references its `.wav` file(s)
 
 ---
 
 ## Change log
 
-**2026-07-19** — Full rewrite (this file).
+**2026-07-23 — This version.** Full rewrite against ground-truth extracted from `PO_Adder_DB.uasset` and `.uexp` (PilotOverhaul-Eternal, workshop ID 3501217348). Definitive event slot list — no more inference. Every slot name, tag namespace path, and Adder reference line comes directly from the shipping mod's binary.
 
-<<<<<<< HEAD
-- [x] `R13verGrrl_Hire_001.wav`
-- [ ] `R13verGrrl_Hire_short_001.wav` *(alt short take of line 1)*
-- [x] `R13verGrrl_MissionStart_001.wav`
-- [ ] `R13verGrrl_EnemySighted_001.wav`
-- [x] `R13verGrrl_TakingDamage_001.wav`
-- [x] `R13verGrrl_MechShutdown_001.wav`
-- [x] `R13verGrrl_KillConfirmed_001.wav`
-- [x] `R13verGrrl_MissionVictory_001.wav`
-- [x] `R13verGrrl_MissionFailed_001.wav`
-- [ ] `R13verGrrl_Order_Copy_001.wav`
-- [ ] `R13verGrrl_Order_Moving_001.wav`
-- [ ] `R13verGrrl_Order_FallBack_001.wav`
-- [ ] `R13verGrrl_Idle_Cat_001.wav`
-- [ ] `R13verGrrl_Idle_Car_001.wav`
-- [ ] `R13verGrrl_Idle_Home_001.wav`
-- [ ] `R13verGrrl_Idle_MercLife_001.wav`
-- [ ] `R13verGrrl_Idle_Humor_001.wav`
-=======
-Reason: empirical inspection of PilotOverhaul-Eternal's shipping audio bank (`PO_Adder_DB.book` — the same repo Chainsaw ships in, alongside 66 other pilots) plus a deep-research pass revealed the real MW5 event surface. Findings that drove the rewrite:
->>>>>>> 8a3d7df (Rewrite script against empirical MW5 event surface (PilotOverhaul-Eternal audio bank))
+Prior versions:
+- **v4 (2026-07-19 evening)** — Rewrite against `.wem` filenames only (inferred, incomplete). Archived: [`archive/02-voice-lines-script-v4-preresearch.md`](archive/02-voice-lines-script-v4-preresearch.md).
+- **v3, v2, v1** — earlier drafts based on partial info + web research. See git history.
 
-- ~60 events exist per pilot, structured in categories (Biome / Command / Died / Ejected / Firing / Kill Blow / Marked / Mission / Pilot / Spot / Take Damage).
-- MW5 supports randomization: multiple `.wav` files per event, cycled at random.
-- Category "Idle" **does not exist** — the 5 idle lines in the previous script are dead-line risks.
-- Biome banter is the closest analogue to idle chatter and is missing entirely from the old script.
-- Damage-per-component (6 body-part slots) and Spot-Enemy-per-unit-type are high-frequency events missing from the old script.
-- Command acks are much richer than we scoped — 8+ variants (Attack/Follow/Hold Fire/Weapons Free × single/Lance).
+---
 
-**Previous version** — 2026-07-19 (earlier that day). Had 16 MVP + 12 Optional = 28 lines organized around a category system that predated inspection of a real audio bank. Superseded.
-
-**Historical versions** — 2026-07-14 initial research, 2026-07-19 morning expansion. See git history for the earlier drafts.
+**Next document:** [`03-references.md`](03-references.md) — annotated sources used across all script versions.
