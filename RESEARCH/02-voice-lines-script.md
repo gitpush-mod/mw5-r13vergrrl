@@ -8,6 +8,103 @@ Prior versions of this script (v2, v3, v4) are archived in [`archive/`](archive/
 
 ---
 
+## Example voice lines from Pilot Overhaul Eternal
+
+### Adder
+- [Command Affirmative 7.wav](https://github.com/user-attachments/files/30391938/Command.Affirmative.7.wav)
+- [Command Affirmative 1.wav](https://github.com/user-attachments/files/30391937/Command.Affirmative.1.wav)
+- [Biome Arctic 1.wav](https://github.com/user-attachments/files/30391936/Biome.Arctic.1.wav)
+- [Take Damage Destroy Component LArm.wav](https://github.com/user-attachments/files/30391935/Take.Damage.Destroy.Component.LArm.wav)
+- [Spot Enemy Mech 5.wav](https://github.com/user-attachments/files/30391934/Spot.Enemy.Mech.5.wav)
+- [Pilot Intro.wav](https://github.com/user-attachments/files/30391933/Pilot.Intro.wav)
+- [Pilot Hired.wav](https://github.com/user-attachments/files/30391932/Pilot.Hired.wav)
+- [Kill Blow Mech Cheer 4.wav](https://github.com/user-attachments/files/30391931/Kill.Blow.Mech.Cheer.4.wav)
+- [Ejected Critical.wav](https://github.com/user-attachments/files/30391930/Ejected.Critical.wav)
+- [Died Pilot.wav](https://github.com/user-attachments/files/30391929/Died.Pilot.wav)
+
+### Bulwark
+- [PilotHired1.wav](https://github.com/user-attachments/files/30391951/PilotHired1.wav)
+- [LeftArmLoss2.wav](https://github.com/user-attachments/files/30391950/LeftArmLoss2.wav)
+- [GeneralPartLoss4.wav](https://github.com/user-attachments/files/30391949/GeneralPartLoss4.wav)
+- [EjectCrit2.wav](https://github.com/user-attachments/files/30391948/EjectCrit2.wav)
+- [BiomeHostileMoon.wav](https://github.com/user-attachments/files/30391947/BiomeHostileMoon.wav)
+- [Line 59.wav](https://github.com/user-attachments/files/30391967/Line.59.wav)
+
+### Chainsaw\
+- [Line 45.wav](https://github.com/user-attachments/files/30391966/Line.45.wav)
+- [Line 32.wav](https://github.com/user-attachments/files/30391965/Line.32.wav)
+- [Extra Line 1.wav](https://github.com/user-attachments/files/30391964/Extra.Line.1.wav)
+- [Line 235.wav](https://github.com/user-attachments/files/30391963/Line.235.wav)
+- [Line 220.wav](https://github.com/user-attachments/files/30391962/Line.220.wav)
+- [Line 208.wav](https://github.com/user-attachments/files/30391961/Line.208.wav)
+- [Line 196 Alt.wav](https://github.com/user-attachments/files/30391960/Line.196.Alt.wav)
+- [Line 181.wav](https://github.com/user-attachments/files/30391959/Line.181.wav)
+- [Line 166.wav](https://github.com/user-attachments/files/30391958/Line.166.wav)
+- [Line 150.wav](https://github.com/user-attachments/files/30391957/Line.150.wav)
+- [Line 138.wav](https://github.com/user-attachments/files/30391956/Line.138.wav)
+- [Line 123.wav](https://github.com/user-attachments/files/30391955/Line.123.wav)
+- [Line 108.wav](https://github.com/user-attachments/files/30391954/Line.108.wav)
+- [Line 73.wav](https://github.com/user-attachments/files/30391953/Line.73.wav)
+- [AirboneContact1.wav](https://github.com/user-attachments/files/30391946/AirboneContact1.wav)
+
+### Hail
+- [Hail_204.wav](https://github.com/user-attachments/files/30391980/Hail_204.wav)
+- [Hail_134.wav](https://github.com/user-attachments/files/30391979/Hail_134.wav)
+- [Hail_61.wav](https://github.com/user-attachments/files/30391978/Hail_61.wav)
+- [Hail_26.wav](https://github.com/user-attachments/files/30391977/Hail_26.wav)
+- [Hail_17.wav](https://github.com/user-attachments/files/30391976/Hail_17.wav)
+- [Hail_1.wav](https://github.com/user-attachments/files/30391975/Hail_1.wav)
+
+### Kelpie
+- [Affirmative.wav](https://github.com/user-attachments/files/30391991/Affirmative.wav)
+- [NegativeMove.wav](https://github.com/user-attachments/files/30391990/NegativeMove.wav)
+- [KillBlowMechHeadCongrats.wav](https://github.com/user-attachments/files/30391989/KillBlowMechHeadCongrats.wav)
+- [FriendlyFireCommander.wav](https://github.com/user-attachments/files/30391988/FriendlyFireCommander.wav)
+- [DiedUnitCritical.wav](https://github.com/user-attachments/files/30391987/DiedUnitCritical.wav)
+- [AffirmativeMoveLance.wav](https://github.com/user-attachments/files/30391986/AffirmativeMoveLance.wav)\
+
+### Mist
+- [143b.wav](https://github.com/user-attachments/files/30391998/143b.wav)
+- [100.wav](https://github.com/user-attachments/files/30391997/100.wav)
+- [60b.wav](https://github.com/user-attachments/files/30391996/60b.wav)
+- [231a.wav](https://github.com/user-attachments/files/30391995/231a.wav)
+- [196.wav](https://github.com/user-attachments/files/30391994/196.wav)
+- [173b.wav](https://github.com/user-attachments/files/30391993/173b.wav)
+
+### Preacher
+- [DiedPilot4.wav](https://github.com/user-attachments/files/30392004/DiedPilot4.wav)
+- [AttackTagged1.wav](https://github.com/user-attachments/files/30392003/AttackTagged1.wav)
+- [Affirmative1.wav](https://github.com/user-attachments/files/30392002/Affirmative1.wav)
+- [NegativeMove4.wav](https://github.com/user-attachments/files/30392001/NegativeMove4.wav)
+- [MarkedNarc2.wav](https://github.com/user-attachments/files/30392000/MarkedNarc2.wav)
+- [ForestSummer2.wav](https://github.com/user-attachments/files/30391999/ForestSummer2.wav)
+
+### Raider
+- [SpotEnemyMech1.wav](https://github.com/user-attachments/files/30392014/SpotEnemyMech1.wav)
+- [EjectedCritical.wav](https://github.com/user-attachments/files/30392013/EjectedCritical.wav)
+- [CommandAffirmativeMoveLance2.wav](https://github.com/user-attachments/files/30392012/CommandAffirmativeMoveLance2.wav)
+- [CommandAffirmativeAttack6.wav](https://github.com/user-attachments/files/30392011/CommandAffirmativeAttack6.wav)
+- [CharacterDialogueBiomeForestWinter1.wav](https://github.com/user-attachments/files/30392010/CharacterDialogueBiomeForestWinter1.wav)
+- [AttackTargetingFiringAtTargetMarkedWithNarc1.wav](https://github.com/user-attachments/files/30392009/AttackTargetingFiringAtTargetMarkedWithNarc1.wav)
+
+### Showshoe
+- [Barracks-Intro.wav](https://github.com/user-attachments/files/30392022/Barracks-Intro.wav)
+- [Dialogue-Spotted-Mech-002.wav](https://github.com/user-attachments/files/30392021/Dialogue-Spotted-Mech-002.wav)
+- [Dialogue-FriendlyFire-002.wav](https://github.com/user-attachments/files/30392020/Dialogue-FriendlyFire-002.wav)
+- [Combat-Neg-Attack-003.wav](https://github.com/user-attachments/files/30392019/Combat-Neg-Attack-003.wav)
+- [Combat-Affirm-Hold-003.wav](https://github.com/user-attachments/files/30392018/Combat-Affirm-Hold-003.wav)
+- [Biome-Hostile-002.wav](https://github.com/user-attachments/files/30392017/Biome-Hostile-002.wav)
+
+### Sobek
+- [Annoucement_4.wav](https://github.com/user-attachments/files/30392029/Annoucement_4.wav)
+- [AffirmativeAttack_1.wav](https://github.com/user-attachments/files/30392027/AffirmativeAttack_1.wav)
+- [Negative_3.wav](https://github.com/user-attachments/files/30392026/Negative_3.wav)
+- [LastLancemateStanding_1.wav](https://github.com/user-attachments/files/30392025/LastLancemateStanding_1.wav)
+- [FriendlyFireCommander_4.wav](https://github.com/user-attachments/files/30392024/FriendlyFireCommander_4.wav)
+- [DestroyComponent_5.wav](https://github.com/user-attachments/files/30392023/DestroyComponent_5.wav)
+
+---
+
 ## Two lore anchors that shape every line
 
 1. **The cat is in the cockpit with her.** Not remembered — present. Cat meow ambience is canonical background wherever it fits. Where the script says `[cat's name]`, Nil substitutes her actual cat's name at record time. Chris will splice real meow layers in during post.
