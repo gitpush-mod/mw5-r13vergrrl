@@ -58,6 +58,10 @@ Publish target: **Steam Workshop**. Manual install path will match the standard 
 - **Knowledgebase:** [`gitpush-mod/mw5-knowledgebase`](https://github.com/gitpush-mod/mw5-knowledgebase) (private) — includes `reference/ZuluBetterHeroes/` for how a working hero-pilot mod is structured.
 - **Sibling mod:** [`gitpush-mod/mw5-zulibetterheroes-reforged`](https://github.com/gitpush-mod/mw5-zulibetterheroes-reforged) — trait-tree fork of Kurst's original.
 
+## 🐛 Found a bug?
+
+- **[Open an issue with the bug template](https://github.com/gitpush-mod/mw5-r13vergrrl/issues/new?template=bug_report.md&labels=bug)**
+
 ## 🙌 Credits
 
 - **Author:** [Chris Carpenter (Godimas101)](https://github.com/Godimas101)
