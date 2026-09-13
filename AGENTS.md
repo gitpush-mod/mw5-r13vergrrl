@@ -60,6 +60,14 @@ the general porting approach.
 - **No vanilla-asset copies** — this is critical for anything visual/audio. All art and audio in the mod is original or open-licensed.
 - **Check `%LOCALAPPDATA%\MW5Mercs\Saved\Logs\`** — any errors mention the mod? Quote them in the ticket.
 
+## Publishing + feedback flow
+
+Wired into the [TCS Discord bot](https://github.com/The-Canadian-Space/tcs-forum-watcher). Full flow (what mirrors when, tag map, gotchas): [`mods/AGENTS.md` → Publishing + feedback flow](../AGENTS.md) or the wiki at [`discord/release-and-feedback-flow`](https://docs.thecanadian.space/discord/release-and-feedback-flow/).
+
+- Issues labelled `bug` or `suggestion` → `🐛-mod-feedback` (auto). Scaffold repo — feedback flow is live even though the project hasn't started.
+- GitHub releases → persistent thread in `📦-mod-updates`. **Public.** Not applicable until the mod actually ships.
+- **Releases are user-driven.** Do NOT run `gh release create` or push a release tag autonomously.
+
 ## MUST NOT
 
 - Modify vanilla MW5 game files
